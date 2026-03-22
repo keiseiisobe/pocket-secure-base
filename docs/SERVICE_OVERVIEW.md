@@ -17,7 +17,6 @@
 - **Safe Haven Suggestion**: Immediate guidance to the nearest "Safe Haven" (pre-verified quiet locations) to escape overwhelming environments.
 - **SOS & Caregiver Connection**: One-tap functionality to call or send an emergency alert with live location to designated caregivers or parents.
 - **"One-Tap Home"**: A simplified, high-visibility navigation mode to return to a safe, pre-defined "home" location immediately.
-- **Wearable Integration**: Physical SOS triggers and haptic feedback on Apple Watch/Wear OS for discreet support.
 
 ### C. Real-Time Situation Awareness & Verbal Feedback
 - **AI-Powered Verbal Guidance**: Real-time audio feedback for situational awareness, such as "The upcoming station is currently very loud; we recommend staying near the center of the platform where it's quieter."

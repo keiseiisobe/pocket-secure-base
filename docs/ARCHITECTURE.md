@@ -10,7 +10,6 @@ The following diagram illustrates the interaction between the mobile app, the AI
 graph TD
     %% User Layer
     User((User)) <--> MobileApp[Flutter Mobile App]
-    MobileApp <--> Wearable[Apple Watch / Wear OS]
 
     %% Mobile App Internal Components
     subgraph MobileApp_Internal [Mobile App internals]

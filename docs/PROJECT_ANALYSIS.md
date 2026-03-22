@@ -19,7 +19,7 @@ For individuals with ASD, ADHD, or SPS, this tool addresses "Environmental Unpre
 ## 3. Potential Problems & Risks
 - **The "Trust Gap"**: If the app suggests a "quiet" route that happens to have active road construction (which it didn't detect), the user may experience a sudden sensory overload. For this audience, a single failure can lead to a complete loss of trust in the tool.
 - **Connectivity Issues**: Subway stations often have "dead zones." If the app relies on a cloud-based LLM for every verbal feedback, it might fail exactly when the user enters a loud, confusing station and needs it most.
-- **Battery Drain**: GPS + Background Data + LLM processing + Bluetooth (for Wearables) will drain a phone's battery quickly. A dead phone is a major safety risk for this demographic.
+- **Battery Drain**: GPS + Background Data + LLM processing will drain a phone's battery quickly. A dead phone is a major safety risk for this demographic.
 - **Cognitive Overload**: There is a risk that *too much* verbal feedback could actually add to the sensory noise. The AI needs to be extremely "quiet" and only speak when necessary.
 
 ## 4. Strategic Recommendations

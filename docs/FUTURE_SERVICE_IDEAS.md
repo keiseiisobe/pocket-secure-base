@@ -26,3 +26,8 @@ This document serves as a repository for potential features and services to be i
 - **Review-Based Sensory Analysis**: Scans public reviews for a location (cafes, malls, parks) to extract specific sensory metadata like "echoey," "uses strong incense," or "unexpectedly crowded on Tuesdays."
 - **Empathetic Grounding Companion**: A specialized LLM chatbot trained in grounding techniques (CBT/DBT) that provides personalized, non-judgmental conversation during a sensory overload or panic episode.
 - **Simplified "Easy Read" Summarizer**: Automatically transforms complex public information—like transit delay announcements, store policies, or maps—into high-clarity, bulleted "Easy Read" formats in real-time.
+
+## 6. Wearable Integration
+- **Discreet Haptic Navigation**: Using Apple Watch or Wear OS to provide directional "nudges" (vibration patterns) so the user doesn't have to look at their phone.
+- **Physical SOS Trigger**: A dedicated watch complication or button sequence to trigger "Secure Base" mode instantly and discreetly.
+- **Bio-Feedback Sync**: Using watch heart-rate data to automatically trigger grounding exercises if the user's stress levels (heart rate variability) spike.
