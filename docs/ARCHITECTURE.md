@@ -9,10 +9,11 @@ The following diagram illustrates the interaction between the mobile app, the AI
 ```mermaid
 graph TD
     %% User Layer
-    User((User)) <--> MobileApp[Flutter Mobile App]
+    User((User)) <--> MobileApp
 
-    %% Mobile App Internal Components
-    subgraph MobileApp_Internal [Mobile App internals]
+    %% Mobile App Components
+    subgraph MobileApp_Block [Mobile App]
+        MobileApp[Flutter Mobile App]
         UI[Sensory-Friendly UI]
         LocalAI[On-Device AI - Local Feedback]
         PanicSupport[Offline Panic Tools]
@@ -33,9 +34,8 @@ graph TD
     end
 
     %% Connections
-    MobileApp --> Cloud_Orchestrator
-    Cloud_Orchestrator --> LLM
-    Cloud_Orchestrator --> DataEnricher
+    MobileApp <--> DataEnricher
+    DataEnricher <--> LLM
     DataEnricher --> ODPT
     DataEnricher --> GSearch
     MobileApp --> GMap
