@@ -24,7 +24,7 @@ graph TD
 
     %% External Data Sources (Tools)
     subgraph External_APIs [Data Sources & Tools]
-        GMap[Google Maps / Places API]
+        GMap[Google Maps App]
         ODPT[Tokyo Metro GTFS-RT]
         GSearch[Google Search Tool]
     end
@@ -62,8 +62,8 @@ The app maintains a "Secure Base" even when not in the foreground:
 ## 4. Technical Infrastructure & Data Sources
 
 ### A. Navigation & Locations
-- **Google Maps SDK / Route API**: Core map rendering and pathfinding for quiet/safe routes.
-- **Google Places API**: Identifying and filtering "Safe Havens" and nearby points of interest.
+- **URL Scheme Routing**: Core pathfinding by launching native Google Maps app with specific waypoints for quiet/safe routes.
+- **Search-Based Place Discovery**: The LLM uses the Google Search Tool to identify "Safe Havens" (cafes, libraries, parks) and extract sensory metadata from public reviews and descriptions.
 
 ### B. Real-Time Data Sources (Tools)
 - **Tokyo Metro GTFS-RT (ODPT)**: Real-time transit information via the [Open Data Challenge for Public Transportation in Japan](https://ckan.odpt.org/dataset/r_train_gtfs_rt-odpt_train-tokyometro).

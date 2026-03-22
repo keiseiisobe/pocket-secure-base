@@ -3,7 +3,7 @@
 ## 1. Technical Feasibility: [Feasible but Complex]
 The core components are technically possible today, but the "glue" that connects them in real-time is the challenge.
 
-- **The "Easy" Parts**: Integrating Google Maps/Places APIs, implementing haptic breathing exercises, and building a basic SOS trigger are standard mobile development tasks.
+- **The "Easy" Parts**: Integrating Google Search for place discovery, implementing haptic breathing exercises, and building a basic SOS trigger are standard mobile development tasks.
 - **The "Hard" Parts**:
     - **LLM Latency**: Waiting for an LLM to "search" and process a route while a user is walking can take 5–15 seconds. In a navigation context, this feels like an eternity.
     - **Data Granularity**: While Tokyo Metro provides GTFS-RT data, "noise levels" and "crowd density" on specific street corners are not always available in real-time. You would likely need to rely on *probabilistic* data (e.g., "this area is usually busy at 5 PM") rather than 100% real-time accuracy.
