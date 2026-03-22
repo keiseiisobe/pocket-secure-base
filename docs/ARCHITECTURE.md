@@ -4,41 +4,36 @@
 Pocket Secure Base is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for individuals with developmental disorders.
 
 ## 2. High-Level Component Diagram
-The following diagram illustrates the interaction between the mobile app, the AI orchestration layer, and external data sources.
+The following diagram illustrates the Agentic workflow where the LLM acts as the central decision-maker, utilizing tools to gather environmental context.
 
 ```mermaid
 graph TD
     %% User Layer
-    User((User)) <--> MobileApp
+    User((User)) <--> MobileApp_Block
 
     %% Mobile App Components
     subgraph MobileApp_Block [Mobile App]
-        MobileApp[Flutter Mobile App]
-        UI[Sensory-Friendly UI]
-        LocalAI[On-Device AI - Local Feedback]
-        PanicSupport[Offline Panic Tools]
-        BackgroundMonitor[Background Environment Monitor]
+        LocalAI[On-Device AI]
+        BackgroundMonitor[Background Monitor]
     end
 
     %% Cloud / Backend Layer
     subgraph Cloud_Orchestrator [AI Orchestration Layer - Cloud]
         LLM[LLM Engine - OpenAI/Gemini]
-        DataEnricher[Real-Time Context Enricher]
     end
 
-    %% External Data Sources
-    subgraph External_APIs [Data Sources & Services]
+    %% External Data Sources (Tools)
+    subgraph External_APIs [Data Sources & Tools]
         GMap[Google Maps / Places API]
         ODPT[Tokyo Metro GTFS-RT]
         GSearch[Google Search Tool]
     end
 
     %% Connections
-    MobileApp <--> DataEnricher
-    DataEnricher <--> LLM
-    DataEnricher --> ODPT
-    DataEnricher --> GSearch
-    MobileApp --> GMap
+    MobileApp_Block <--> LLM
+    LLM <--> ODPT
+    LLM <--> GSearch
+    MobileApp_Block --> GMap
 ```
 
 ---
@@ -47,14 +42,14 @@ graph TD
 
 ### A. The "Hybrid" Intelligence Model
 To balance advanced reasoning with immediate safety:
-- **Cloud LLM (The Planner)**: Handles complex, multi-variable route planning (e.g., "Find a route from Shinjuku to Ginza that avoids the 5 PM rush and major construction"). This occurs during the initial journey request.
+- **Cloud LLM (The Planner)**: An agentic model that handles complex route planning. It proactively uses tools (ODPT, Google Search) to investigate the user's path for sensory triggers before suggesting a route.
 - **Local AI (The Guardian)**: A lightweight, on-device model (e.g., quantized TFLite) providing immediate verbal feedback based on real-time GPS coordinates and ambient noise from the microphone, ensuring functionality even in "dead zones."
 
-### B. The Cloud Context Enricher
-A centralized orchestrator (e.g., Firebase Functions or Node.js service) acts as a single endpoint for the mobile app:
-1.  **Request Aggregation**: Parallelizes requests to **ODPT** (train delays) and **Google Search Tool** (identifying events or noisy zones).
-2.  **Context Injection**: Feeds this real-time data into the **LLM** as a system prompt.
-3.  **Sensory Mapping**: Returns a structured "Sensory Map" to the app, highlighting potential stress zones.
+### B. LLM Tool Use (Function Calling)
+The Cloud LLM is equipped with specialized tools to interpret the real world:
+1.  **Tokyo Metro GTFS-RT (ODPT)**: The LLM checks for train delays, platform crowding, and station status when planning transit routes.
+2.  **Google Search Tool**: The LLM searches for local events, festivals, or construction news that might cause sudden noise or crowd surges.
+3.  **Dynamic Reasoning**: By using these as tools, the LLM can perform iterative searches (e.g., "If Line A is crowded, let me check the status of Line B").
 
 ### C. Background Monitoring & Safety
 The app maintains a "Secure Base" even when not in the foreground:
@@ -70,6 +65,6 @@ The app maintains a "Secure Base" even when not in the foreground:
 - **Google Maps SDK / Route API**: Core map rendering and pathfinding for quiet/safe routes.
 - **Google Places API**: Identifying and filtering "Safe Havens" and nearby points of interest.
 
-### B. Real-Time Data Sources
+### B. Real-Time Data Sources (Tools)
 - **Tokyo Metro GTFS-RT (ODPT)**: Real-time transit information via the [Open Data Challenge for Public Transportation in Japan](https://ckan.odpt.org/dataset/r_train_gtfs_rt-odpt_train-tokyometro).
 - **Google Search Tool**: Real-time identification of large-scale events, construction, or sudden noise pollution via search-driven intelligence.
