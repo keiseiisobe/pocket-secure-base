@@ -9,7 +9,7 @@
 - **Crowd & Noise Minimization**: AI-powered routing that prioritizes "stressless" paths—avoiding high-decibel areas and extreme pedestrian density.
 - **Dynamic Route Optimization**: Real-time rerouting suggestions based on crowd surges or unexpected noise events.
 
-### B. Emergency & Panic Support ("Secure Base" Mode)
+### B. Emergency & Panic Support
 - **Panic Button & Immediate Support**: Quick-access tool providing grounding exercises and sensory relaxation to manage panic episodes.
 - **Sensory Relaxation Tools**: 
     - **Audio Grounding**: Playback of familiar voices (e.g., parent/caregiver recordings) to provide immediate comfort.
