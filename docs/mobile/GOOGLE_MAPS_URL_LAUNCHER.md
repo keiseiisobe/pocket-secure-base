@@ -10,7 +10,7 @@ Using the [Google Maps URLs API](https://developers.google.com/maps/documentatio
 | :--- | :--- | :--- |
 | **"Where we go"** | `origin`, `destination` | Supports addresses, place names, or `lat,lng` coordinates. |
 | **"Which way we go"** | `travelmode` | Can be set to `walking`, `transit`, `driving`, or `bicycling`. |
-| **"Safe Stops"** | `waypoints` | A list of intermediate locations (e.g., "Safe Havens") the user should pass through. |
+| **"Safe Stops"** | `waypoints` | A list of locations to "steer" the route. Includes **Strategic** (Safe Havens to rest) and **Tactical** (quiet corners to avoid crowds). |
 | **"Avoidance"** | `avoid` | Can specify features to avoid, such as `tolls`, `highways`, or `ferries`. |
 | **"Action"** | `dir_action=navigate` | Forces the app to start turn-by-turn navigation immediately. |
 
