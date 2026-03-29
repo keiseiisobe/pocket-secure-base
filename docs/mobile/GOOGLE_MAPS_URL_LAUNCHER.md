@@ -22,6 +22,16 @@ Using the [Google Maps URLs API](https://developers.google.com/maps/documentatio
 ## 3. What We CANNOT Do (Limitations)
 While powerful, the URL launcher method has specific constraints:
 
+- **Waypoint Count Limit (Important for Ueno Park route sample)**:
+  - Google Maps URLs (`/maps/dir/?api=1`) support **up to 9 waypoints**.
+  - Our Ueno Park sample route intentionally requests **10 waypoints** to show this limit visually.
+  - In the sample app, we expose this with explicit variables:
+    - `googleMapsUrlMaxWaypoints = 9`
+    - `requestedWaypointsToUenoPark.length = 10`
+    - `isRequestedWaypointCountWithinGoogleMapsLimit` (boolean)
+  - If requested waypoints exceed the limit, the launcher trims waypoints to the first 9 before creating the URL (`launchableWaypoints`).
+  - This makes the limitation transparent in the UI and avoids generating a non-functional URL.
+
 - **"When we go" (Departure/Arrival Time)**:
   - The standard Google Maps URL scheme (`api=1`) **does not officially support** passing a specific departure or arrival time. 
   - While "hacky" internal URL formats exist, they are brittle and not recommended for production.

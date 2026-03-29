@@ -1,7 +1,9 @@
 # Service Overview: Pocket Secure Base
 
 ## 1. Mission Statement
-"Pocket Secure Base" aims to empower individuals with Autism, ADHD, and other developmental disorders by providing them with a digital "secure base" in their pocket. Our mission is to reduce the anxiety and sensory overload associated with navigating the outside world, enabling greater independence and community interaction.
+"Pocket Secure Base" aims to empower individuals with Autism, ADHD, and other developmental disorders by providing them with a digital **"Secure Base"** (as defined by psychologist **John Bowlby**) in their pocket. Our mission is to reduce the anxiety and sensory overload associated with navigating the outside world, enabling greater independence and community interaction.
+
+See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for the psychological theory behind the name.
 
 ## 2. Core Services
 
