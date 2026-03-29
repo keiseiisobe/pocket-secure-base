@@ -1,30 +1,64 @@
 # Feature Specification: On-Device AI ("The Guardian")
 
 ## 1. Overview
-The On-Device AI, referred to as **"The Guardian,"** is a lightweight, locally-hosted model designed to provide immediate, low-latency sensory awareness and safety support. While the Cloud LLM handles complex route planning, The Guardian ensures the user is never left without guidance, even in areas with poor or no connectivity.
+"The Guardian" is the on-device intelligence layer of the Pocket Secure Base. It consists of two local AI models—a lightweight LLM for text generation and a high-quality TTS engine—working in tandem to provide immediate, offline-capable sensory support during navigation.
 
-## 2. Core Services
+---
 
-### A. Real-Time Ambient Noise Monitoring
-- **Function**: Continuously analyzes audio input from the device microphone (locally) to detect sudden decibel spikes or persistent high-volume environments.
-- **Action**: Triggers immediate verbal alerts if the environment exceeds the user’s predefined sensory threshold (e.g., "The noise level here is rising. Would you like to put on noise-canceling headphones?").
+## 2. The Remote-to-Local Navigation Flow
+The system operates on a "Strategic Cloud, Tactical Local" model. The Cloud AI handles the heavy planning, while the Local AI handles real-time execution and safety.
 
-### B. Zero-Latency Verbal Feedback
-- **Function**: Provides situational awareness based on real-time GPS coordinates.
-- **Benefit**: Unlike the Cloud LLM, which may take seconds to respond, The Guardian provides instant feedback as the user moves (e.g., "Turning left in 10 meters; stay toward the wall to avoid the crowd ahead").
+```mermaid
+sequenceDiagram
+    participant User
+    participant CloudAI as Cloud LLM (Strategic)
+    participant LocalAI as Local LLM (Tactical)
+    participant LocalTTS as Local TTS (Voice)
+    participant NativeMaps as Google Maps (External)
 
-### C. Offline-First Panic & Grounding Support
-- **Grounding Exercises**: Manages the synchronization of haptic breathing patterns and audio grounding (playback of familiar voices) without requiring an internet connection.
-- **Emergency Data Access**: Stores "One-Tap Home" coordinates and local "Safe Haven" locations for immediate retrieval during a network "dead zone."
+    Note over User, CloudAI: Phase 1: Strategic Planning
+    User->>CloudAI: "Go to Cafe via quiet route"
+    CloudAI-->>CloudAI: Analyze ODPT (Transit) & Search (Events)
+    CloudAI->>User: Provide Sensory Map & Safety Briefing
+    CloudAI->>NativeMaps: Launch via URL Scheme (Waypoints)
 
-### D. Geofence Interventions
-- **Function**: Monitors the user's proximity to "High-Stress Zones" (identified during the planning phase) in the background.
-- **Action**: Triggers haptic "nudges" or verbal reminders when approaching a stressful transition point, ensuring the user is prepared before they arrive.
+    Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
+    NativeMaps->>User: Standard Directions
+    rect rgb(240, 248, 255)
+        Note right of LocalAI: Background Monitoring
+        LocalAI->>LocalAI: Monitor GPS + Ambient Noise
+        LocalAI->>LocalAI: Match with Cloud Route Data
+        LocalAI->>LocalTTS: Stream: "Busy road ahead, stay right."
+        LocalTTS->>User: (Audio) "Busy road ahead..."
+    end
+```
 
-## 3. Technical Implementation
-- **Model Type**: Quantized TFLite (TensorFlow Lite) or Mediapipe models optimized for mobile NPU/GPU.
-- **Privacy**: All audio analysis for noise levels and immediate GPS-to-speech processing happens strictly on-device. No raw audio or real-time movement data is streamed to the cloud for these "Guardian" functions.
-- **Battery Optimization**: Utilizes low-power background processing to monitor environmental triggers without significant battery drain.
+---
 
-## 4. Why It Matters
-For users with sensory processing sensitivities, a 5-second delay in AI reasoning is too long during a sudden sensory overload. The Guardian provides the **immediate safety net** required to maintain trust in the system, ensuring that the "Secure Base" is always available regardless of signal strength.
+## 3. Core Models & Assets
+
+### A. Local LLM (Sentence Generation)
+- **Model Choice**: **Gemma 2B** (via LiteRT/MediaPipe) or **Gemini Nano** (AICore on Android flagships).
+- **Role**: Takes raw environmental data (e.g., "Noise: 85dB," "Current Lat/Lng: Near Construction") and the Cloud AI's route metadata to generate human-like, calming advice.
+- **Latency**: Sub-200ms Time-to-First-Token (TTFT) on modern NPU/GPU.
+
+### B. Local TTS (Text-to-Speech)
+- **Model Choice**: **Kokoro-82M** (via `sherpa-onnx`).
+- **Role**: Transforms the text from the Local LLM into high-quality, natural audio.
+- **Key Feature**: **Streaming Audio.** It begins synthesizing speech as the first tokens of the sentence are generated, ensuring zero-latency verbal feedback.
+
+---
+
+## 4. Performance & Reliability Constraints
+
+| Metric | Target | Mitigation Strategy |
+| :--- | :--- | :--- |
+| **RAM Usage** | ~2.5 GB | Models are loaded only when a trip starts and purged when it ends. |
+| **Latency** | < 800ms total | Parallel streaming: LLM token generation flows directly into the TTS buffer. |
+| **Battery** | < 15%/hr | Offload to NPU (Neural Processing Unit) or GPU whenever possible. |
+| **Reliability** | 100% Offline | Both models and their weights are bundled as app assets. |
+
+## 5. Why the "Two-Model" Approach Matters
+- **Emotional Calibration**: A standard "robot" voice can be a sensory trigger. The Local LLM crafts *gentle* sentences, and the high-quality TTS delivers them in a *calm* tone.
+- **Privacy First**: Sensitive data about the user's immediate physical environment and stress levels never leave the device.
+- **Immediate Intervention**: In a "Panic Mode" event, waiting for a cloud round-trip is not an option. The local assets ensure the "Secure Base" is always present, even in subway tunnels or dead zones.
