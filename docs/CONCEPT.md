@@ -16,25 +16,31 @@ graph TD
     classDef primary fill:#1a237e,stroke:#0d47a1,stroke-width:4px,color:#fff,font-weight:bold;
     classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:2px,color:#0d47a1,stroke-dasharray: 5 5;
     classDef user fill:#ffd54f,stroke:#ff8f00,stroke-width:2px;
+    classDef public fill:#f5f5f5,stroke:#9e9e9e,stroke-dasharray: 2 2;
 
-    subgraph Primary_Anchors [Primary Secure Bases - Strong Density]
-        Home((Home)):::primary
-        Office((Office)):::primary
-        SW((Social Worker)):::primary
-        Family((Family)):::primary
+    %% Primary Zone
+    subgraph Primary_Zone [Primary Secure Base - Strong Density]
+        Home((Home / Family / SW)):::primary
     end
 
-    subgraph Mobile_Safety [Complementary Secure Base - Lighter Density]
-        UserNode(User):::user
-        App((Complementary Base: App)):::complementary
+    %% Transition
+    Home -- "Goes Outside" --> UserNode
+
+    %% Public Space with App Protection
+    subgraph Public_Space [Public Space - The 'Outside']
+        direction TB
+        subgraph App_Bubble [Complementary Secure Base - Lighter Density]
+            UserNode(User):::user
+            App((App: The Guardian)):::complementary
+            
+            App -- "Surrounds / Protects" --> UserNode
+        end
         
-        UserNode <--> App
+        Destination((Unknown Cafe / Subway)):::public
     end
 
-    %% Relationship
-    Home -.-> App
-    SW -.-> App
-    App -- "Extends Safety" --> UserNode
+    %% Legend-like connection
+    Primary_Zone -. "Foundational Support" .-> App_Bubble
 ```
 
 ## 3. The App's Role
