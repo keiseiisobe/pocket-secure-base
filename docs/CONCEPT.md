@@ -11,46 +11,39 @@ This app is trying to provide a **complementary secure base** while they go outs
 This diagram represents the user's landscape of safety. The **Primary Secure Bases** (Home, Social Workers) are fixed points of high-density support, while the **Complementary Secure Base** (the App) follows the user, providing a lighter but constant layer of safety.
 
 ```mermaid
-graph TD
+graph LR
     %% Styling for Density
     classDef primary fill:#1a237e,stroke:#0d47a1,stroke-width:4px,color:#fff,font-weight:bold;
     classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:1px,color:#0d47a1,stroke-dasharray: 8 4;
     classDef user fill:#ffd54f,stroke:#ff8f00,stroke-width:2px;
     classDef public fill:#f5f5f5,stroke:#eeeeee,color:#9e9e9e;
 
-    %% Map Layout
-    subgraph City_Map [The Outside World / Society]
-        direction LR
+    %% Fixed Primary Anchors
+    Home((Home)):::primary
+    SocialWorker((Social Worker)):::primary
+
+    %% The Outside World Journey
+    subgraph Society [The Outside World]
+        Intersection[Busy Intersection]:::public
+        Station[Crowded Station]:::public
+        Cafe[New Cafe]:::public
         
-        %% Anchors
-        Home((Home)):::primary
-        Office((Office)):::primary
-        SW((Social Worker)):::primary
-        
-        %% The User's Journey
-        subgraph Complementary_Base [Complementary Secure Base: APP]
-            direction TB
+        subgraph App_Bubble [Complementary Secure Base: APP]
             UserNode(User):::user
-            Note["Guardian AI Active"]
         end
-        
-        %% Landmarks (The Outside)
-        Unknown1[Busy Intersection]:::public
-        Unknown2[Crowded Station]:::public
-        Unknown3[New Cafe]:::public
     end
 
     %% Flow of Movement
-    Home -- "Goes Outside" --> Complementary_Base
-    Complementary_Base -- "Navigates" --> Unknown1
-    Complementary_Base -- "Transitions" --> Unknown2
-    Complementary_Base -- "Explores" --> Unknown3
-    Unknown3 -- "Returns to Primary" --> Office
+    Home -- "Leaves Home" --> App_Bubble
+    App_Bubble -- "Navigates" --> Intersection
+    Intersection -- "Transitions" --> Station
+    Station -- "Explores" --> Cafe
+    Cafe -- "Safety Check" --> SocialWorker
 
     %% Legend
     subgraph Legend
-        L1((Strong Density)):::primary -- "Primary Base (Fixed)"
-        L2((Weak Density)):::complementary -- "Complementary Base (Mobile)"
+        P[Strong Density: Primary Base]:::primary
+        C[Weak Density: Complementary Base]:::complementary
     end
 ```
 
