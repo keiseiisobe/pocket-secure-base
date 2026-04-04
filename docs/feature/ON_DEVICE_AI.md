@@ -11,25 +11,38 @@ The system operates on a "Strategic Cloud, Tactical Local" model. The Cloud AI h
 ```mermaid
 sequenceDiagram
     participant User
-    participant CloudAI as Cloud LLM (Strategic)
+    participant App as AI Orchestrator (App)
     participant LocalAI as Local LLM (Tactical)
     participant LocalTTS as Local TTS (Voice)
+    participant CloudAI as Cloud LLM (Strategic)
+    participant CloudTTS as Cloud TTS (Voice)
     participant NativeMaps as Google Maps (External)
 
     Note over User, CloudAI: Phase 1: Strategic Planning
-    User->>CloudAI: "Go to Cafe via quiet route"
-    CloudAI-->>CloudAI: Analyze ODPT (Transit) & Search (Events)
-    CloudAI->>User: Provide Sensory Map & Safety Briefing
-    CloudAI->>NativeMaps: Launch via URL Scheme (Waypoints)
+    User->>App: "Go to Cafe via quiet route"
+    App->>CloudAI: Request Plan & Search Environment
+    CloudAI-->>CloudAI: Analyze ODPT & Search
+    CloudAI->>App: Send Plan + Sensory Map
+    App->>User: Show Safety Briefing & Route Overview
+    App->>NativeMaps: Launch via URL Scheme (Waypoints)
 
     Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
     NativeMaps->>User: Standard Directions
+    
     rect rgb(240, 248, 255)
-        Note right of LocalAI: Background Monitoring
-        LocalAI->>LocalAI: Monitor GPS + Ambient Noise
-        LocalAI->>LocalAI: Match with Cloud Route Data
-        LocalAI->>LocalTTS: Stream: "Busy road ahead, stay right."
-        LocalTTS->>User: (Audio) "Busy road ahead..."
+        Note right of App: Background Sentry (Low-Power)
+        App->>App: Monitor GPS + Ambient Noise
+        App->>App: Match Location with Sensory Map
+        
+        alt If Connection is Strong (Normal)
+            App->>CloudAI: Get Situational Advice
+            CloudAI->>CloudTTS: Stream Audio
+            CloudTTS->>User: (Audio) "Stay on the quiet path..."
+        else If Connection is Weak / High Stress (Guardian)
+            App->>LocalAI: Trigger "Guardian" Intervention
+            LocalAI->>LocalTTS: Stream: "Busy road ahead, stay right."
+            LocalTTS->>User: (Audio) "Busy road ahead..."
+        end
     end
 ```
 
