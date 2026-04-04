@@ -21,9 +21,11 @@ See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for
 - **"One-Tap Home"**: A simplified, high-visibility navigation mode to return to a safe, pre-defined "home" location immediately.
 
 ### C. Real-Time Situation Awareness & Verbal Feedback
-- **AI-Powered Verbal Guidance**: Real-time audio feedback for situational awareness, such as "The upcoming station is currently very loud; we recommend staying near the center of the platform where it's quieter."
-- **Proactive Stress Management**: LLM-driven advice for upcoming transitions, like "The next train is somewhat crowded, but many people will disembark at the next stop."
-- **Smart Re-routing Advice**: Clear, verbalized suggestions like "The planned route is currently congested. Would you like to take a quieter, slightly longer detour?"
+- **AI-Powered Verbal Guidance**: Real-time audio feedback for situational awareness (e.g., "The upcoming station is currently very loud; we recommend staying near the center of the platform.").
+- **Offline Safety Upgrade (Local Guardian)**: An optional high-performance mode that downloads on-device AI models (**Gemma-3-1b** and **Kokoro-82m**).
+    - **Reliability**: Ensures navigation support and verbal guidance work 100% offline in subway tunnels or "dead zones."
+    - **Latency**: Provides near-instantaneous alerts for sudden sensory triggers (e.g., loud sirens or construction) that require immediate intervention.
+- **Smart Re-routing Advice**: Cloud-driven suggestions like "The planned route is currently congested. Would you like to take a quieter detour?"
 
 ## 3. Target Audience
 - Individuals with Autism Spectrum Disorder (ASD).

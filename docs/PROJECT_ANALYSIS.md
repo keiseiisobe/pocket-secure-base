@@ -17,12 +17,18 @@ For individuals with ASD, ADHD, or SPS, this tool addresses "Environmental Unpre
 - **Grounding Tools**: Having haptic/audio grounding pre-integrated into a navigation tool is clever because the "crisis" (panic) often happens *during* the transition between locations.
 
 ## 3. Potential Problems & Risks
-- **The "Trust Gap"**: If the app suggests a "quiet" route that happens to have active road construction (which it didn't detect), the user may experience a sudden sensory overload. For this audience, a single failure can lead to a complete loss of trust in the tool.
-- **Connectivity Issues**: Subway stations often have "dead zones." If the app relies on a cloud-based LLM for every verbal feedback, it might fail exactly when the user enters a loud, confusing station and needs it most.
-- **Battery Drain**: GPS + Background Data + LLM processing will drain a phone's battery quickly. A dead phone is a major safety risk for this demographic.
-- **Cognitive Overload**: There is a risk that *too much* verbal feedback could actually add to the sensory noise. The AI needs to be extremely "quiet" and only speak when necessary.
+- **The "App Uninstall Problem"**: Large AI models (multi-GB) and heavy processing can lead to uninstalls due to:
+    - **Storage Bloat**: Users with low-storage devices may delete the app to reclaim space.
+    - **Battery & Heat**: Sustained NPU/CPU usage for real-time monitoring can cause device heating and rapid battery drain, leading to user frustration.
+- **The "Trust Gap"**: If the app fails to detect sudden sensory triggers (e.g., unexpected construction), a single failure can lead to a complete loss of trust.
+- **Connectivity Issues**: Subway "dead zones" are a critical failure point for cloud-only solutions.
+- **Cognitive Overload**: Too much feedback can become a sensory trigger itself.
 
 ## 4. Strategic Recommendations
-- **Hybrid AI Model**: Use a cloud LLM for the initial route planning, but use a **local/on-device AI** for the verbal feedback to ensure it works offline and with zero latency.
-- **User-Defined "Safe Haven" Crowdsourcing**: Allow users to "mark" quiet spots in the app, creating a proprietary layer of sensory data that Google Maps doesn't have.
-- **Offline "Panic" Mode**: Ensure the "One-Tap Home" and grounding tools work even if there is zero internet connection.
+- **Choice-Driven Hybrid AI**: 
+    - Default to **Cloud AI** for lightweight, detailed planning. 
+    - Offer an **"Offline Safety Upgrade"** (Gemma-3-1b & Kokoro-82m) that users explicitly download on-demand. This gives the user control over their device's storage and battery.
+- **On-Demand Asset Loading**: Use system-native methods (Play Feature Delivery / ODR) to download model weights only when requested, keeping the initial app size minimal.
+- **Adaptive "Sentry" Logic**: Use low-power, rule-based triggers to monitor environment, only "waking up" heavy AI models when a sensory risk is detected.
+- **User-Defined "Safe Haven" Crowdsourcing**: Create a proprietary sensory map that Google Maps lacks.
+- **Offline "Panic" Mode**: Guarantee grounding tools work 100% offline.

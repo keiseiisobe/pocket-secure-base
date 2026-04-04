@@ -9,41 +9,53 @@ The following diagram illustrates the Agentic workflow where the LLM acts as the
 ```mermaid
 graph TD
     %% User Layer
-    User((User)) <--> MobileApp_Block
+    User((User)) <--> Orchestrator
 
     %% Mobile App Components
     subgraph MobileApp_Block [Mobile App]
-        LocalAI[On-Device AI]
-        BackgroundMonitor[Background Monitor]
+        Orchestrator{AI Orchestrator}
+        subgraph Local_Guardian [Local AI: Optional Upgrade]
+            LocalLLM[Gemma-3-1b]
+            LocalTTS[Kokoro-82m]
+        end
+        AssetStore[(On-Demand Assets)]
+        Monitor[Background Monitor]
     end
 
     %% Cloud / Backend Layer
-    subgraph Cloud_Orchestrator [AI Orchestration Layer - Cloud]
-        LLM[LLM Engine - OpenAI/Gemini]
+    subgraph Cloud_Orchestrator [Cloud AI Layer]
+        CloudLLM[Strategic LLM]
+        CloudTTS[Cloud TTS Service]
     end
 
-    %% External Data Sources (Tools)
-    subgraph External_APIs [Data Sources & Tools]
+    %% External Data Sources
+    subgraph External_APIs [Tools & Maps]
         GMap[Google Maps App]
         ODPT[Tokyo Metro GTFS-RT]
         GSearch[Google Search Tool]
     end
 
     %% Connections
-    MobileApp_Block <--> LLM
-    LLM <--> ODPT
-    LLM <--> GSearch
-    MobileApp_Block --> GMap
+    Orchestrator <-- "If Offline/Emergency" --> Local_Guardian
+    Orchestrator <-- "Primary Reasoning/Default Voice" --> Cloud_Orchestrator
+    AssetStore -- "Download on Consent" --> Local_Guardian
+    CloudLLM <--> ODPT
+    CloudLLM <--> GSearch
+    Orchestrator --> GMap
+    Monitor --> Orchestrator
 ```
 
 ---
 
 ## 3. Core Architectural Components
 
-### A. The "Hybrid" Intelligence Model
-To balance advanced reasoning with immediate safety:
-- **Cloud LLM (The Planner)**: An agentic model that handles complex route planning. It proactively uses tools (ODPT, Google Search) to investigate the user's path for sensory triggers before suggesting a route.
-- **Local AI (The Guardian)**: A lightweight, on-device model (e.g., quantized TFLite) providing immediate verbal feedback based on real-time GPS coordinates and ambient noise from the microphone, ensuring functionality even in "dead zones."
+### A. The "Hybrid" Choice-Driven Intelligence Model
+To balance advanced reasoning with device efficiency and immediate safety:
+- **Cloud LLM (The Strategic Planner)**: An agentic model (e.g., Gemini Cloud/GPT-4) that handles complex route planning and deep situational analysis using real-time external tools. It is the default intelligence layer for all users.
+- **Local AI (The Tactical Guardian)**: A high-performance, on-device stack consisting of **gemma-3-1b** (Reasoning) and **Kokoro-82m** (TTS). 
+  - **Optional Activation**: This is an "Offline Safety Upgrade" that users must explicitly consent to.
+  - **Role**: Provides sub-second, offline-capable verbal feedback based on immediate GPS coordinates and ambient noise from the microphone. It serves as the primary intelligence when the internet connection is weak or the support is time-sensitive (e.g., sudden loud noises).
+  - **Asset Management**: Models are downloaded on-demand (approx. 800MB–1.5GB) to keep the initial app size small and prevent uninstalls related to storage bloat.
 
 ### B. LLM Tool Use (Function Calling)
 The Cloud LLM is equipped with specialized tools to interpret the real world:

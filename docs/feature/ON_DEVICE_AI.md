@@ -37,15 +37,32 @@ sequenceDiagram
 
 ## 3. Core Models & Assets
 
-### A. Local LLM (Sentence Generation)
-- **Model Choice**: **Gemma 2B** (via LiteRT/MediaPipe) or **Gemini Nano** (AICore on Android flagships).
-- **Role**: Takes raw environmental data (e.g., "Noise: 85dB," "Current Lat/Lng: Near Construction") and the Cloud AI's route metadata to generate human-like, calming advice.
-- **Latency**: Sub-200ms Time-to-First-Token (TTFT) on modern NPU/GPU.
+### A. Local LLM (Reasoning)
+- **Model Choice**: **gemma-3-1b** (via `onnxruntime` or `LiteRT`).
+- **Role**: Takes raw environmental data (noise, GPS) and route metadata to generate immediate advice when internet is weak or timing is critical.
+- **Latency**: Sub-200ms TTFT (Time-to-First-Token) is the target for immediate intervention.
 
-### B. Local TTS (Text-to-Speech)
-- **Model Choice**: **Kokoro-82M** (via `sherpa-onnx`).
-- **Role**: Transforms the text from the Local LLM into high-quality, natural audio.
-- **Key Feature**: **Streaming Audio.** It begins synthesizing speech as the first tokens of the sentence are generated, ensuring zero-latency verbal feedback.
+### B. Local TTS (The Voice)
+- **Model Choice**: **Kokoro-82m**.
+- **Role**: Transforms the Local LLM's text into high-quality, natural audio.
+- **Key Feature**: **Offline Support.** It is the primary voice engine when the app is in a "dead zone" (e.g., subway).
+
+---
+
+## 4. User Choice & Deployment Strategy
+
+### A. First Launch Decision
+At first launch, users are presented with a clear choice:
+- **Enable Offline Guardian**: Triggers an on-demand download (~800MB) of local weights. This provides safety regardless of internet and immediate intervention for time-sensitive alerts.
+- **Keep Cloud-Only**: No large download. All advice and TTS are generated via Cloud APIs.
+
+### B. Dynamic Fallback Logic
+The app's orchestrator makes real-time decisions:
+1.  **If User Opted-In**:
+    - **Normal**: Cloud AI for complex planning (Detailed/battery-saving).
+    - **Weak Internet / Time-Sensitive Alert**: Local AI (`gemma-3-1b` + `Kokoro-82m`) for immediate safety.
+2.  **If User Opted-Out**:
+    - Always use Cloud AI. If the connection is lost, the app provides a standard "No Internet" notification and suggests seeking a safe haven until reconnected.
 
 ---
 
