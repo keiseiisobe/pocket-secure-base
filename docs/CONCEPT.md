@@ -14,33 +14,44 @@ This diagram represents the user's landscape of safety. The **Primary Secure Bas
 graph TD
     %% Styling for Density
     classDef primary fill:#1a237e,stroke:#0d47a1,stroke-width:4px,color:#fff,font-weight:bold;
-    classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:2px,color:#0d47a1,stroke-dasharray: 5 5;
+    classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:1px,color:#0d47a1,stroke-dasharray: 8 4;
     classDef user fill:#ffd54f,stroke:#ff8f00,stroke-width:2px;
-    classDef public fill:#f5f5f5,stroke:#9e9e9e,stroke-dasharray: 2 2;
+    classDef public fill:#f5f5f5,stroke:#eeeeee,color:#9e9e9e;
 
-    %% Primary Zone
-    subgraph Primary_Zone [Primary Secure Base - Strong Density]
-        Home((Home / Family / SW)):::primary
-    end
-
-    %% Transition
-    Home -- "Goes Outside" --> UserNode
-
-    %% Public Space with App Protection
-    subgraph Public_Space [Public Space - The 'Outside']
-        direction TB
-        subgraph App_Bubble [Complementary Secure Base - Lighter Density]
+    %% Map Layout
+    subgraph City_Map [The Outside World / Society]
+        direction LR
+        
+        %% Anchors
+        Home((Home)):::primary
+        Office((Office)):::primary
+        SW((Social Worker)):::primary
+        
+        %% The User's Journey
+        subgraph Complementary_Base [Complementary Secure Base: APP]
+            direction TB
             UserNode(User):::user
-            App((App: The Guardian)):::complementary
-            
-            App -- "Surrounds / Protects" --> UserNode
+            Note["Guardian AI Active"]
         end
         
-        Destination((Unknown Cafe / Subway)):::public
+        %% Landmarks (The Outside)
+        Unknown1[Busy Intersection]:::public
+        Unknown2[Crowded Station]:::public
+        Unknown3[New Cafe]:::public
     end
 
-    %% Legend-like connection
-    Primary_Zone -. "Foundational Support" .-> App_Bubble
+    %% Flow of Movement
+    Home -- "Goes Outside" --> Complementary_Base
+    Complementary_Base -- "Navigates" --> Unknown1
+    Complementary_Base -- "Transitions" --> Unknown2
+    Complementary_Base -- "Explores" --> Unknown3
+    Unknown3 -- "Returns to Primary" --> Office
+
+    %% Legend
+    subgraph Legend
+        L1((Strong Density)):::primary -- "Primary Base (Fixed)"
+        L2((Weak Density)):::complementary -- "Complementary Base (Mobile)"
+    end
 ```
 
 ## 3. The App's Role
