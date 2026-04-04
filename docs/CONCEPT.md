@@ -7,45 +7,52 @@ This app is trying to provide a **complementary secure base** while they go outs
 
 ---
 
-## 2. Visualization: Primary vs. Complementary
-This diagram represents the user's landscape of safety. The **Primary Secure Bases** (Home, Social Workers) are fixed points of high-density support, while the **Complementary Secure Base** (the App) follows the user, providing a lighter but constant layer of safety.
+## 2. Visualization: The Safety Map
+This map illustrates the transition from fixed safety to mobile safety.
 
-```mermaid
-graph LR
-    %% Styling for Density
-    classDef primary fill:#1a237e,stroke:#0d47a1,stroke-width:4px,color:#fff,font-weight:bold;
-    classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:1px,color:#0d47a1,stroke-dasharray: 8 4;
-    classDef user fill:#ffd54f,stroke:#ff8f00,stroke-width:2px;
-    classDef public fill:#f5f5f5,stroke:#eeeeee,color:#9e9e9e;
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background: The Outside World -->
+  <rect width="600" height="400" fill="#f8f9fa" rx="10" ry="10" />
+  <text x="300" y="30" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#adb5bd" font-weight="bold">THE OUTSIDE WORLD (SOCIETY)</text>
 
-    %% Fixed Primary Anchors
-    Home((Home)):::primary
-    SocialWorker((Social Worker)):::primary
+  <!-- Primary Secure Bases (Strong Density) -->
+  <!-- Home -->
+  <circle cx="80" cy="200" r="40" fill="#1a237e" />
+  <text x="80" y="205" text-anchor="middle" font-family="sans-serif" font-size="12" fill="white" font-weight="bold">HOME</text>
+  <text x="80" y="260" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#1a237e">Primary Base</text>
 
-    %% The Outside World Journey
-    subgraph Society [The Outside World]
-        Intersection[Busy Intersection]:::public
-        Station[Crowded Station]:::public
-        Cafe[New Cafe]:::public
-        
-        subgraph App_Bubble [Complementary Secure Base: APP]
-            UserNode(User):::user
-        end
-    end
+  <!-- Social Worker Office -->
+  <circle cx="520" cy="100" r="40" fill="#1a237e" />
+  <text x="520" y="105" text-anchor="middle" font-family="sans-serif" font-size="11" fill="white" font-weight="bold">SW OFFICE</text>
+  
+  <!-- The User's Journey & Complementary Base -->
+  <!-- Complementary Secure Base (Weak Density Bubble) -->
+  <circle cx="320" cy="220" r="80" fill="#bbdefb" fill-opacity="0.4" stroke="#2196f3" stroke-width="2" stroke-dasharray="8,4" />
+  
+  <!-- User -->
+  <circle cx="320" cy="220" r="15" fill="#ffd54f" stroke="#ff8f00" stroke-width="2" />
+  <text x="320" y="255" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#ff8f00" font-weight="bold">USER</text>
 
-    %% Flow of Movement
-    Home -- "Leaves Home" --> App_Bubble
-    App_Bubble -- "Navigates" --> Intersection
-    Intersection -- "Transitions" --> Station
-    Station -- "Explores" --> Cafe
-    Cafe -- "Safety Check" --> SocialWorker
+  <!-- Labels for the Bubble -->
+  <text x="320" y="125" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2196f3" font-weight="bold">COMPLEMENTARY SECURE BASE</text>
+  <text x="320" y="140" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#2196f3">(The App / Mobile Protection)</text>
 
-    %% Legend
-    subgraph Legend
-        P[Strong Density: Primary Base]:::primary
-        C[Weak Density: Complementary Base]:::complementary
-    end
-```
+  <!-- Path / Movement -->
+  <path d="M 130 200 Q 220 200 300 220" stroke="#dee2e6" stroke-width="3" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#dee2e6" />
+    </marker>
+  </defs>
+
+  <!-- Outside Obstacles (Representing Society) -->
+  <rect x="250" y="320" width="100" height="30" fill="#e9ecef" rx="5" />
+  <text x="300" y="340" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6c757d">Busy Intersection</text>
+  
+  <rect x="400" y="280" width="80" height="30" fill="#e9ecef" rx="5" />
+  <text x="440" y="300" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#6c757d">Subway</text>
+</svg>
+
 
 ## 3. The App's Role
 - **Primary Base (Anchor)**: Provides long-term stability and human connection.
