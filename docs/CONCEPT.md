@@ -17,14 +17,14 @@ graph TD
     classDef complementary fill:#bbdefb,stroke:#2196f3,stroke-width:2px,color:#0d47a1,stroke-dasharray: 5 5;
     classDef user fill:#ffd54f,stroke:#ff8f00,stroke-width:2px;
 
-    %% Primary Secure Bases (Strong Density)
-    Home((Home)):::primary
-    Office((Office)):::primary
-    SW((Social Worker)):::primary
-    Family((Family)):::primary
+    subgraph Primary_Anchors [Primary Secure Bases - Strong Density]
+        Home((Home)):::primary
+        Office((Office)):::primary
+        SW((Social Worker)):::primary
+        Family((Family)):::primary
+    end
 
-    %% User's Journey
-    subgraph Public_Space [Public Environment]
+    subgraph Mobile_Safety [Complementary Secure Base - Lighter Density]
         UserNode(User):::user
         App((Complementary Base: App)):::complementary
         
@@ -35,9 +35,6 @@ graph TD
     Home -.-> App
     SW -.-> App
     App -- "Extends Safety" --> UserNode
-
-    Note over Home, Family: Primary Secure Bases (Fixed / Strong)
-    Note over App: Complementary Secure Base (Mobile / Lighter)
 ```
 
 ## 3. The App's Role
