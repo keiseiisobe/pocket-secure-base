@@ -61,11 +61,14 @@ sequenceDiagram
     participant NativeMaps as Google Maps (External)
 
     Note over User, CloudAI: Phase 1: Strategic Planning (Online)
-    User->>App: Directions + [Sensory Preferences: Noise/Crowd/Light]
-    App->>CloudAI: Request Plan
-    CloudAI-->>CloudAI: Grouding with Google Search/Maps + function calling (ODPT)
-    CloudAI->>App: Send Plan
-    App->>User: Route Overview
+    loop Until user is satisfied with the route
+        User->>App: Directions + [Sensory Preferences: Noise/Crowd/Light]
+        App->>CloudAI: Request Plan
+        CloudAI-->>CloudAI: Grouding with Google Search/Maps + function calling (ODPT)
+        CloudAI->>App: Send Plan
+        App->>User: Route Overview
+    end
+    
 	User->>App: Start Navigation
     App->>NativeMaps: Launch via URL Scheme (Waypoints)
 
