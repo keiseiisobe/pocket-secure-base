@@ -58,6 +58,7 @@ sequenceDiagram
     participant CloudAI as Cloud Gemini (Strategic Planner)
     participant Advisor as Situational Advisor (Gemini)
     participant CloudTTS as Cloud TTS (ElevenLabs)
+    participant Batch as Event Scout (Server)
     participant NativeMaps as Google Maps (External)
 
     Note over User, CloudAI: Phase 1: Strategic Planning (Online)
@@ -74,6 +75,16 @@ sequenceDiagram
 
     Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
     
+    loop Real-time Scouting
+        Batch-->>Batch: Poll JMA/NHK/ODPT
+    end
+    
+    Batch->>App: Push Notification (Hazard Alert)
+    App->>Advisor: Request Situational Guidance (Context + Telemetry)
+    Advisor->>CloudTTS: Emotive Advice (Text)
+    CloudTTS->>App: Audio Stream
+    App->>User: Listen
+
     rect rgb(240, 248, 255)
         Note right of App: Background Sentry (Low-Power)
         App->>App: Monitor GPS + Ambient Noise

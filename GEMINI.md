@@ -1,3 +1,4 @@
 - Do not modify any part of a file unless explicitly instructed to do so. This includes preserving exact literal strings for participant names, labels, and comments.
+- Never "fix" or "restore" any text, labels, or participant names that were not explicitly mentioned in the current instruction, even if you believe they were changed by mistake in a previous turn. Only modify the exact lines or symbols requested in the latest directive.
 - Always provide references or evidence when citing or referring to information from external websites.
 - When performing a replacement, ensure the 'new_string' preserves all surrounding context and unrelated text exactly as it appears in the 'old_string' or the original file.
