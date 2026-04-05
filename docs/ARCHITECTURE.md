@@ -4,8 +4,6 @@
 Pocket Secure Base is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for individuals with developmental disorders.
 
 ## 2. High-Level Component Diagram
-The following diagram illustrates the Agentic workflow where the LLM acts as the central decision-maker, utilizing tools to gather environmental context.
-
 ```mermaid
 graph TD
     %% User Layer
@@ -50,9 +48,7 @@ graph TD
 
 ---
 
-## 3. Hybrid Intelligence Lifecycle: Planning & Intervention
-The system operates on a "Strategic Cloud, Tactical Local" model. The Cloud AI handles the heavy planning and script generation, while the Local AI handles real-time execution and safety interventions.
-
+## 3. Service Flow Diagram
 ```mermaid
 sequenceDiagram
     participant User
@@ -109,7 +105,7 @@ sequenceDiagram
 
 ### A. The "Hybrid" Choice-Driven Intelligence Model
 To balance advanced reasoning with device efficiency and immediate safety:
-- **Cloud LLM (The Strategic Planner)**: An agentic model (Gemini 2.0 Flash) that handles complex route planning and deep situational analysis. It pre-writes "Gold Standard" scripts for the local engine.
+- **Cloud LLM (The Strategic Planner)**: An agentic model (Gemini 2.0 Flash) that handles complex route planning and deep situational analysis.
 - **Local AI (The Reflex Engine)**: A lightweight, high-performance on-device classifier.
   - **Role**: Provides sub-second, offline-capable interventions by matching sensor data (GPS/Noise) to pre-recorded vocabulary assets.
   - **Asset Store**: A library of human-voiced "Social Worker" interventions and grounding exercises stored locally to ensure 100% reliability without internet.

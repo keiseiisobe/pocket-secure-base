@@ -14,7 +14,7 @@ The Cloud AI employs an **Agentic Loop** (Reason -> Act -> Observe). It investig
 graph TD
     UserReq[User: Directions + Sensory Preferences] --> Agent{Cloud Gemini: Strategic Planner}
     Agent -- "1. Tool Call" --> ODPT[ODPT API: Train Crowds]
-    Agent -- "2. Tool Call" --> GSearch[Google Search: Local Events]
+    Agent -- "2. Grounding" --> GSearch[Google Search]
     ODPT --> Agent
     GSearch --> Agent
     Agent -- "3. Synthesis" --> Plan[Final Plan Generation]
@@ -24,15 +24,16 @@ graph TD
 
 ---
 
-## 3. Strategic Tools (Function Calling)
-The LLM is equipped with specialized functions to "see" the current state of the city:
+## 3. Strategic Grounding & Tools
+The LLM utilizes built-in grounding and specialized functions to "see" the current state of the city:
 
+### A. Grounding with Google Search
+Used to identify festivals, construction, or protests that create noise/crowds, and to scan public reviews for sensory metadata (quiet levels, lighting).
+
+### B. Function Calling (Strategic Tools)
 | Tool Name | Parameters | Description |
 | :--- | :--- | :--- |
-| `get_transit_status` | `line_name`, `station` | Accesses Tokyo Metro GTFS-RT (ODPT) to check for delays and platform crowding. |
-| `search_local_events` | `location`, `date` | Uses Google Search to identify festivals, construction, or protests that create noise/crowds. |
-| `get_sensory_data` | `coordinates` | Queries the proprietary sensory database for permanent triggers (echoing tunnels, loud AC exhausts). |
-| `calculate_quiet_route` | `origin`, `destination` | Performs initial pathfinding with weightings for user-specific sensory preferences. |
+| `get_train_realtime_info` | `line_name`, `station` | Accesses Tokyo Metro GTFS-RT (ODPT) to check for delays and platform crowding. |
 
 ---
 

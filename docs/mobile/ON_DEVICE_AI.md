@@ -19,11 +19,6 @@ For the high-level system flow, see the **Hybrid Intelligence Lifecycle** in [AR
 - **Role**: Provides the primary "Safe Haven" verbal guidance and grounding exercises.
 - **Key Feature**: **100% Deterministic.** Zero risk of AI hallucinations or processing delays during a crisis.
 
-### C. Local TTS (Dynamic Backup)
-- **Model Choice**: **Kokoro-82m**.
-- **Role**: Provides a fallback for dynamic information (e.g., specific station names or updated transit times) not covered in the static asset store.
-- **Key Feature**: **Offline Support.** Ensures the "Guardian" remains audible even in "dead zones."
-
 ---
 
 ## 3. Performance & Reliability Constraints

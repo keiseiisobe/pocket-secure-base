@@ -3,8 +3,6 @@
 ## 1. Role & Objective
 The Cloud TTS Service provides the **high-quality, emotive "Voice of the Guardian"** for the Pocket Secure Base. 
 
-While the Local TTS (Kokoro-82m) is optimized for speed and offline reliability, the Cloud TTS is optimized for **fidelity, emotional nuance, and low-bandwidth streaming**. It is the default voice service when the user has a strong internet connection.
-
 ---
 
 ## 2. Technical Stack
