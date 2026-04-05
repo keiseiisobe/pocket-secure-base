@@ -26,7 +26,7 @@ graph TD
         CloudLLM[Strategic LLM]
         Advisor[Situational Advisor]
         CloudTTS[Cloud TTS Service]
-        Batch[Event Scout (Server)]
+        Batch["Event Scout (Server)"]
     end
 
     %% External Data Sources
