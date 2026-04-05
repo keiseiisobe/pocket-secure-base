@@ -1,0 +1,3 @@
+- Do not modify any part of a file unless explicitly instructed to do so. This includes preserving exact literal strings for participant names, labels, and comments.
+- Always provide references or evidence when citing or referring to information from external websites.
+- When performing a replacement, ensure the 'new_string' preserves all surrounding context and unrelated text exactly as it appears in the 'old_string' or the original file.

@@ -37,6 +37,7 @@ graph TD
     %% Connections
     Orchestrator <-- "If Offline/Emergency" --> Local_Guardian
     Orchestrator <-- "Primary Reasoning/Default Voice" --> Cloud_Orchestrator
+    AssetStore -- "Download on Consent" --> Local_Guardian
     CloudLLM <--> ODPT
     CloudLLM <--> GSearch
     Orchestrator --> GMap
@@ -55,28 +56,30 @@ sequenceDiagram
     participant LocalAI as Reflex Engine (Local)
     participant Assets as Asset Store (Audio)
     participant CloudAI as Cloud Gemini (Strategic Planner)
+    participant Advisor as Situational Advisor (Gemini)
+    participant CloudTTS as Cloud TTS (ElevenLabs)
     participant NativeMaps as Google Maps (External)
 
     Note over User, CloudAI: Phase 1: Strategic Planning (Online)
-
-    User->>App: Directions + [Sensory Preferences: Noise/Crowd/Light]
-    App->>CloudAI: Request
-    CloudAI-->>CloudAI: Grounding with Google Search/Maps + function calling (ODPT)
-    CloudAI->>App: Send Plan + Route Information
-    App->>User: Show Route Overview
-	User->>App: Start Navigation
+    User->>App: "Go to Cafe" + [Sensory Preferences: Noise/Crowd/Light]
+    App->>CloudAI: Strategic Planning Request (Gemini)
+    CloudAI-->>CloudAI: Analyze ODPT, Search & Filter by User Prefs
+    CloudAI->>App: Send Plan + Pre-written Scripts
+    App->>User: Show Safety Briefing & Route Overview
     App->>NativeMaps: Launch via URL Scheme (Waypoints)
 
     Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
+    NativeMaps->>User: Standard Directions
     
     rect rgb(240, 248, 255)
         Note right of App: Background Sentry (Low-Power)
         App->>App: Monitor GPS + Ambient Noise
         
         alt If Connection is Strong (Normal)
-            App->>CloudAI: Get Situational Advice
-            CloudAI->>App: Stream Emotive Guidance
-            App->>User: (Audio) "Stay on the quiet path..."
+            App->>Advisor: Request Situational Guidance (Context + Telemetry)
+            Advisor->>CloudTTS: Emotive Advice (Text)
+            CloudTTS->>App: Audio Stream
+            App->>User: Listen
         else If Connection is Weak / Emergency (Guardian)
             App->>LocalAI: Classify Sensory Hazard
             LocalAI->>Assets: Trigger: EMERGENCY_STAY_CALM
