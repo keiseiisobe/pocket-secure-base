@@ -37,8 +37,8 @@ graph TD
     end
 
     %% Connections
-    Orchestrator <-- "If Offline/Emergency" --> Local_Guardian
-    Orchestrator <-- "Primary Reasoning/Default Voice" --> Cloud_Orchestrator
+    Orchestrator <-- "If Offline/Emergency" --> LocalReflex
+    Orchestrator <-- "Primary Reasoning/Default Voice" --> CloudLLM
     CloudLLM <--> ODPT
     CloudLLM <--> GSearch
     Batch <--> ODPT
