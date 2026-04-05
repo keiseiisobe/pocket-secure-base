@@ -24,7 +24,9 @@ graph TD
     %% Cloud / Backend Layer
     subgraph Cloud_Orchestrator [Cloud AI Layer]
         CloudLLM[Strategic LLM]
+        Advisor[Situational Advisor]
         CloudTTS[Cloud TTS Service]
+        Batch[Event Scout (Server)]
     end
 
     %% External Data Sources
@@ -37,9 +39,11 @@ graph TD
     %% Connections
     Orchestrator <-- "If Offline/Emergency" --> Local_Guardian
     Orchestrator <-- "Primary Reasoning/Default Voice" --> Cloud_Orchestrator
-    AssetStore -- "Download on Consent" --> Local_Guardian
     CloudLLM <--> ODPT
     CloudLLM <--> GSearch
+    Batch <--> ODPT
+    Batch <--> GSearch
+    Batch -- "Hazard Alert (Push)" --> Orchestrator
     Orchestrator --> GMap
     Monitor --> Orchestrator
 ```

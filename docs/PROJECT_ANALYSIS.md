@@ -25,10 +25,10 @@ For individuals with ASD, ADHD, or SPS, this tool addresses "Environmental Unpre
 - **Cognitive Overload**: Too much feedback can become a sensory trigger itself.
 
 ## 4. Strategic Recommendations
-- **Choice-Driven Hybrid AI**: 
-    - Default to **Cloud AI** for lightweight, detailed planning. 
-    - Offer an **"Offline Safety Upgrade"** (Gemma-3-1b & Kokoro-82m) that users explicitly download on-demand. This gives the user control over their device's storage and battery.
-- **On-Demand Asset Loading**: Use system-native methods (Play Feature Delivery / ODR) to download model weights only when requested, keeping the initial app size minimal.
-- **Adaptive "Sentry" Logic**: Use low-power, rule-based triggers to monitor environment, only "waking up" heavy AI models when a sensory risk is detected.
+- **Reflex-Based Hybrid AI**: 
+    - Default to **Gemini 2.0 Flash (Cloud)** for complex planning and emotive guidance when online.
+    - Utilize a **Bundled Reflex Engine** (Tiny Classifier + Audio Assets) for 100% reliable, zero-latency emergency support offline.
+- **Micro-Asset Management**: Use highly compressed Opus audio and quantized TFLite/CoreML models to keep the total app size under 200MB, allowing safety features to be bundled by default.
+- **Adaptive "Sentry" Logic**: Use extremely low-power monitoring to trigger the Reflex Engine, minimizing battery drain.
 - **User-Defined "Safe Haven" Crowdsourcing**: Create a proprietary sensory map that Google Maps lacks.
 - **Offline "Panic" Mode**: Guarantee grounding tools work 100% offline.

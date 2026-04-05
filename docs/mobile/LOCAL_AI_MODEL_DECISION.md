@@ -1,28 +1,33 @@
-# Decision: Local AI & TTS Models
+# Decision: Local AI & Asset-Based Support
 
 ## 1. Overview
-To fulfill the role of the **"Local Guardian"** (as defined in `ARCHITECTURE.md`), we require on-device models that provide immediate, low-latency feedback without relying on an internet connection. This document records the selection of specific models for reasoning and text-to-speech (TTS).
+To fulfill the role of the **"Local Guardian"** (as defined in `ARCHITECTURE.md`), we require on-device components that provide immediate, low-latency feedback without relying on an internet connection. This document records the selection of a **Reflex Engine** and a **Vocabulary Asset Store** for this role.
 
-## 2. Selected Models
+## 2. Selected Components
 
-| Component | Model | Size / Parameter Count | Role |
+| Component | Choice | Parameter Class / Size | Role |
 | :--- | :--- | :--- | :--- |
-| **Local Primary Model** | `gemma-3-1b` | ~1 Billion Parameters | Real-time reasoning, sensory trigger detection, and "Guardian" instructions. |
-| **Local TTS Model** | `Kokoro-82m` | ~82 Million Parameters | High-quality, low-latency verbal feedback for users. |
+| **Reflex Engine (Intelligence)** | **Tiny Classifier** | ~5-15 MB | Real-time classification of sensor data to trigger interventions. |
+| **Asset Store (Voice)** | **Human-voiced Audio** | ~60-100 MB | High-fidelity, empathetic verbal guidance and grounding. |
+| **Local TTS (Dynamic)** | **Kokoro-82m** | ~82 Million Parameters | Fallback for dynamic data (e.g., station names). |
 
 ---
 
 ## 3. Rationale for Selection
 
-### A. gemma-3-1b (The Guardian)
-- **Efficiency**: Designed specifically for mobile and edge devices. At 1B parameters, it strikes a balance between being small enough for high-end mobile RAM while remaining capable of complex reasoning.
-- **Speed**: Provides faster token generation than 7B or 13B models, which is critical for a "Guardian" that must intervene before a user reaches a high-stress area.
-- **Multilingual Support**: Supports Japanese, which is essential for our target demographic and the Tokyo Metro integration.
+### A. Reflex Engine (Tiny Classifier)
+- **Extreme Efficiency**: By using a small classification network instead of a 1B+ LLM, we reduce app size by 99% and battery drain to negligible levels.
+- **Speed**: Provides sub-10ms inference, which is critical for a "Guardian" that must intervene instantly during a sensory surge.
+- **Reliability**: Deterministic classification avoids the "hallucination" risks associated with generative models during a crisis.
 
-### B. Kokoro-82m (The Voice)
-- **Extreme Speed**: With only 82M parameters, it offers near-instantaneous inference on mobile CPUs/NPs.
-- **Quality**: Despite its small size, it produces high-fidelity, natural-sounding speech compared to traditional rule-based TTS or larger neural models.
-- **Japanese Performance**: Using the `Kokoro-J` weights ensures proper pronunciation of Japanese locations and transit instructions.
+### B. Vocabulary Asset Store
+- **Human Empathy**: Real human recordings of social workers provide micro-nuances of co-regulation that AI voices cannot yet replicate.
+- **Immediate Playback**: Triggering a pre-recorded file has zero processing latency compared to text generation.
+- **Predictability**: Instructions are guaranteed to be medically and psychologically sound.
+
+### C. Kokoro-82m (Fallback TTS)
+- **Dynamic Support**: Necessary for reading out unpredictable transit data (e.g., specific delay times or platform numbers) that isn't in the static asset store.
+- **Quality**: Produces natural-sounding Japanese pronunciation for navigation guidance.
 
 ---
 
@@ -30,13 +35,11 @@ To fulfill the role of the **"Local Guardian"** (as defined in `ARCHITECTURE.md`
 
 | Challenge | Mitigation Strategy |
 | :--- | :--- |
-| **App Bloat / Storage** | Models are **not bundled** with the initial download. They are delivered as **On-Demand Assets** (via Play Feature Delivery or iOS ODR) only after explicit user consent. |
-| **Memory (RAM) Pressure** | Both models running simultaneously may be heavy. We will use **quantization** (e.g., 4-bit or 8-bit) and explore **MediaPipe LLM Inference API** or **ONNX Runtime** for memory-efficient execution. |
-| **Flutter Integration** | There is no single "out-of-the-box" package for Gemma 3 + Kokoro. Implementation will likely require `onnxruntime_flutter` or native platform channels (Swift/Kotlin). |
-| **Device Compatibility** | Performance may vary significantly on older devices. The app will include a "Fallback" mode using standard system TTS if `Kokoro` is too slow. |
-| **Japanese Nuance** | Ensure the model weights are specifically fine-tuned or compatible with Japanese for accurate navigation guidance. |
+| **App Size** | The combined size of models and audio assets (~150MB) is now small enough to be **bundled with the app**, removing the need for on-demand downloads. |
+| **Context Limitations** | The classifier is less flexible than an LLM. We mitigate this by using the **Strategic Planner (Cloud)** to pre-write and sync "Trip-Specific Scripts" before the user starts their journey. |
+| **NPU/GPU Utilization** | Tiny models will be optimized for mobile NPUs (via TFLite/CoreML) to ensure zero impact on background tasks. |
 
 ---
 
 ## 5. Summary
-The combination of `gemma-3-1b` and `Kokoro-82m` provides a cutting-edge, high-performance on-device AI stack. It ensures that the **Pocket Secure Base** remains functional and responsive even in subterranean transit environments where cloud connectivity is unreliable.
+The shift from a large Local LLM to a **Reflex-based Asset Retrieval** system ensures that the **Pocket Secure Base** remains highly performant, emotionally resonant, and 100% reliable in emergencies. The small footprint allows for full offline capability without compromising the user's device storage or battery.
