@@ -75,18 +75,15 @@ sequenceDiagram
 
     Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
     
-    loop Real-time Scouting
-        Batch-->>Batch: Poll JMA/NHK/ODPT
-    end
-    
-    Batch->>App: Push Notification (Hazard Alert)
-    App->>Advisor: Request Situational Guidance (Context + Telemetry)
-    Advisor->>CloudTTS: Emotive Advice (Text)
-    CloudTTS->>App: Audio Stream
-    App->>User: Listen
-
     rect rgb(240, 248, 255)
         Note right of App: Background Sentry (Low-Power)
+		
+		loop Real-time Scouting
+			Batch-->>Batch: Poll JMA/NHK/ODPT
+		end
+    
+		Batch->>App: Push Notification (Hazard Alert)
+		
         App->>App: Monitor GPS + Ambient Noise
         
         alt If Connection is Strong (Normal)
