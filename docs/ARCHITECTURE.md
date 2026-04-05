@@ -61,15 +61,15 @@ sequenceDiagram
     participant NativeMaps as Google Maps (External)
 
     Note over User, CloudAI: Phase 1: Strategic Planning (Online)
-    User->>App: "Go to Cafe" + [Sensory Preferences: Noise/Crowd/Light]
-    App->>CloudAI: Strategic Planning Request (Gemini)
-    CloudAI-->>CloudAI: Analyze ODPT, Search & Filter by User Prefs
-    CloudAI->>App: Send Plan + Pre-written Scripts
-    App->>User: Show Safety Briefing & Route Overview
+    User->>App: Directions + [Sensory Preferences: Noise/Crowd/Light]
+    App->>CloudAI: Request Plan
+    CloudAI-->>CloudAI: Grouding with Google Search/Maps + function calling (ODPT)
+    CloudAI->>App: Send Plan
+    App->>User: Route Overview
+	User->>App: Start Navigation
     App->>NativeMaps: Launch via URL Scheme (Waypoints)
 
     Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
-    NativeMaps->>User: Standard Directions
     
     rect rgb(240, 248, 255)
         Note right of App: Background Sentry (Low-Power)
