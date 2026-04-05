@@ -21,15 +21,15 @@ We will bridge the "intelligence gap" by fine-tuning the **Gemma-3-1b** model sp
 - **Technique**: Apply **QLoRA (4-bit quantization)** to fine-tune the model to mimic the "Senior Social Worker" tone.
 - **Result**: The local model becomes "personality-locked" to be calm, non-judgmental, and precise.
 
-### C. Local RAG (The "Safety Handbook")
-A small, high-speed local database (e.g., Isar or SQLite) stores a library of **Grounding Exercises** and **Safety Protocols**.
-- **Vector Search**: When a "Hazard" or "Sensory Surge" is detected via sensors (Pulse/Mic), the Local AI performs a local vector search to find the most appropriate grounding technique (e.g., "5-4-3-2-1 Technique").
-- **Benefit**: Instructions are medically and psychologically sound, rather than "hallucinated" by a small model under pressure.
+### C. The "Digital Pharmacy" (Asset-Based Retrieval)
+Instead of relying on real-time text generation, which can be slow or inconsistent, the app utilizes a library of **High-Fidelity Vocabulary Assets**.
+- **The Asset Store**: A local database of pre-recorded audio and text "scripts" (e.g., `GROUNDING_54321`, `EMERGENCY_STAY_CALM`) voiced by professional social workers.
+- **Intelligent Classification**: The fine-tuned **Gemma-3-1b** acts as a **Context Switcher**. Its role is to analyze sensor data (GPS, Mic, Pulse) and select the most appropriate `Asset_ID` from the pharmacy.
+- **Benefit**: Ensures **zero hallucination**, human-level empathy, and near-instantaneous response times during a crisis.
 
-### D. Emotive TTS Voice Packs (Kokoro-82m)
-We optimize the local voice to match the user's emotional state.
-- **"Calm Guardian" Pack**: Weights optimized for low-pitch, steady-rhythm speech to reduce anxiety.
-- **"Clear Direction" Pack**: Optimized for high-clarity pronunciation in noisy environments (e.g., train platforms).
+### D. Emotive TTS & Audio Blending
+For dynamic information (like specific station names), the app uses **Kokoro-82m**. For core emotional support, it plays the **Pre-recorded Human Assets**. The system intelligently blends these two to maintain a consistent "Guardian" persona.
+
 
 ---
 
@@ -62,3 +62,20 @@ graph TD
 
 ## 5. Summary
 By shifting the "heavy lifting" of reasoning to the **Online/Planning phase**, the **Local Guardian** transforms from a "small chatbot" into a **"High-Speed Emergency Player."** This ensures the user is never left with low-quality support when they are most vulnerable.
+
+---
+
+## 6. Analogy: The Local AI as a "Digital Social Worker"
+
+In an emergency (like a subway hazard), a human social worker doesn't need "super-intelligence." They need **predictability, calm, and focus.** Our Local AI strategy mimics this behavior:
+
+| Social Worker Intervention | Local AI Component | Why it works |
+| :--- | :--- | :--- |
+| **Calm Frequency** | **Kokoro-82m** (Low Pitch) | Biologically signals "Safe" to the nervous system. |
+| **Low-Demand Scripts** | **Pre-cached Scripts** (Flash/Pro) | Replaces lost "Internal Pilot" (planning ability). |
+| **Sensory Filtering** | **Mic Sensors + Haptics** | Helps user focus on a "Sensory Bubble" instead of chaos. |
+| **Next Three Steps** | **Offline Micro-Waypoints** | Provides tiny, achievable goals to prevent paralysis. |
+
+### The "Words as Medicine" Principle
+The Local AI's primary job is not to "solve" the technical problem, but to **provide the voice that keeps the user regulated.** By caching high-quality "Social Worker" scripts while online, the app ensures that the "medicine" is always in the user's pocket, even when the internet is gone.
+

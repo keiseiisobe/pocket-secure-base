@@ -14,11 +14,10 @@ graph TD
     %% Mobile App Components
     subgraph MobileApp_Block [Mobile App]
         Orchestrator{AI Orchestrator}
-        subgraph Local_Guardian [Local AI: Optional Upgrade]
-            LocalLLM[Gemma-3-1b]
-            LocalTTS[Kokoro-82m]
+        subgraph Local_Guardian [Local AI: The Reflex Engine]
+            LocalReflex[Tiny Classifier]
+            AssetStore[Vocabulary Asset Store]
         end
-        AssetStore[(On-Demand Assets)]
         Monitor[Background Monitor]
     end
 
@@ -38,7 +37,6 @@ graph TD
     %% Connections
     Orchestrator <-- "If Offline/Emergency" --> Local_Guardian
     Orchestrator <-- "Primary Reasoning/Default Voice" --> Cloud_Orchestrator
-    AssetStore -- "Download on Consent" --> Local_Guardian
     CloudLLM <--> ODPT
     CloudLLM <--> GSearch
     Orchestrator --> GMap
@@ -47,36 +45,74 @@ graph TD
 
 ---
 
-## 3. Core Architectural Components
+## 3. Hybrid Intelligence Lifecycle: Planning & Intervention
+The system operates on a "Strategic Cloud, Tactical Local" model. The Cloud AI handles the heavy planning and script generation, while the Local AI handles real-time execution and safety interventions.
 
-### A. The "Hybrid" Choice-Driven Intelligence Model
-To balance advanced reasoning with device efficiency and immediate safety:
-- **Cloud LLM (The Strategic Planner)**: An agentic model (e.g., Gemini Cloud/GPT-4) that handles complex route planning and deep situational analysis using real-time external tools. It is the default intelligence layer for all users.
-- **Local AI (The Tactical Guardian)**: A high-performance, on-device stack consisting of **gemma-3-1b** (Reasoning) and **Kokoro-82m** (TTS). 
-  - **Optional Activation**: This is an "Offline Safety Upgrade" that users must explicitly consent to.
-  - **Role**: Provides sub-second, offline-capable verbal feedback based on immediate GPS coordinates and ambient noise from the microphone. It serves as the primary intelligence when the internet connection is weak or the support is time-sensitive (e.g., sudden loud noises).
-  - **Asset Management**: Models are downloaded on-demand (approx. 800MB–1.5GB) to keep the initial app size small and prevent uninstalls related to storage bloat.
+```mermaid
+sequenceDiagram
+    participant User
+    participant App as AI Orchestrator (App)
+    participant LocalAI as Reflex Engine (Local)
+    participant Assets as Asset Store (Audio)
+    participant CloudAI as Cloud LLM (Strategic)
+    participant NativeMaps as Google Maps (External)
 
-### B. LLM Tool Use (Function Calling)
-The Cloud LLM is equipped with specialized tools to interpret the real world:
-1.  **Tokyo Metro GTFS-RT (ODPT)**: The LLM checks for train delays, platform crowding, and station status when planning transit routes.
-2.  **Google Search Tool**: The LLM searches for local events, festivals, or construction news that might cause sudden noise or crowd surges.
-3.  **Dynamic Reasoning**: By using these as tools, the LLM can perform iterative searches (e.g., "If Line A is crowded, let me check the status of Line B").
+    Note over User, CloudAI: Phase 1: Strategic Planning (Online)
+    User->>App: "Go to Cafe via quiet route"
+    App->>CloudAI: Request Plan & Anticipate Hazards
+    CloudAI-->>CloudAI: Analyze ODPT & Search
+    CloudAI->>App: Send Plan + Pre-written Scripts
+    App->>User: Show Safety Briefing & Route Overview
+    App->>NativeMaps: Launch via URL Scheme (Waypoints)
 
-### C. Background Monitoring & Safety
-The app maintains a "Secure Base" even when not in the foreground:
-- **Google Maps Integration**: The app launches the system's Google Maps app for turn-by-turn navigation but continues to monitor the user's state in the background.
-- **Geofencing**: Uses background GPS tracking to trigger "Interventions" (Haptics or Voice) when approaching high-stress areas identified in the planning phase.
-- **Offline-First Panic Layer**: Stores "One-Tap Home" coordinates and sensory relaxation assets locally to ensure the panic button works without internet.
+    Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
+    NativeMaps->>User: Standard Directions
+    
+    rect rgb(240, 248, 255)
+        Note right of App: Background Sentry (Low-Power)
+        App->>App: Monitor GPS + Ambient Noise
+        
+        alt If Connection is Strong (Normal)
+            App->>CloudAI: Get Situational Advice
+            CloudAI->>App: Stream Emotive Guidance
+            App->>User: (Audio) "Stay on the quiet path..."
+        else If Connection is Weak / Emergency (Guardian)
+            App->>LocalAI: Classify Sensory Hazard
+            LocalAI->>Assets: Trigger: EMERGENCY_STAY_CALM
+            Assets->>User: (Audio) "I am here. You are safe."
+        end
+    end
+```
 
 ---
 
-## 4. Technical Infrastructure & Data Sources
+## 4. Core Architectural Components
+
+### A. The "Hybrid" Choice-Driven Intelligence Model
+To balance advanced reasoning with device efficiency and immediate safety:
+- **Cloud LLM (The Strategic Planner)**: An agentic model (Gemini 2.0 Flash) that handles complex route planning and deep situational analysis. It pre-writes "Gold Standard" scripts for the local engine.
+- **Local AI (The Reflex Engine)**: A lightweight, high-performance on-device classifier.
+  - **Role**: Provides sub-second, offline-capable interventions by matching sensor data (GPS/Noise) to pre-recorded vocabulary assets.
+  - **Asset Store**: A library of human-voiced "Social Worker" interventions and grounding exercises stored locally to ensure 100% reliability without internet.
+
+### B. LLM Tool Use (Function Calling)
+The Cloud LLM is equipped with specialized tools to interpret the real world:
+1.  **Tokyo Metro GTFS-RT (ODPT)**: Checks for train delays and platform crowding.
+2.  **Google Search Tool**: Searches for local events or construction that might cause sensory triggers.
+
+### C. Background Monitoring & Safety
+- **Google Maps Integration**: Launches the native maps app for navigation while maintaining background monitoring.
+- **Geofencing**: Triggers haptic or voice interventions when approaching high-stress areas identified in the planning phase.
+- **Offline-First Panic Layer**: Ensures the "Digital Social Worker" remains available even in subterranean transit environments.
+
+---
+
+## 5. Technical Infrastructure & Data Sources
 
 ### A. Navigation & Locations
-- **URL Scheme Routing**: Core pathfinding by launching native Google Maps app with specific waypoints for quiet/safe routes.
-- **Search-Based Place Discovery**: The LLM uses the Google Search Tool to identify "Safe Havens" (cafes, libraries, parks) and extract sensory metadata from public reviews and descriptions.
+- **URL Scheme Routing**: Core pathfinding via Google Maps app with specific tactical waypoints.
+- **Search-Based Place Discovery**: Extraction of sensory metadata (quiet levels, lighting) from public reviews.
 
 ### B. Real-Time Data Sources (Tools)
-- **Tokyo Metro GTFS-RT (ODPT)**: Real-time transit information via the [Open Data Challenge for Public Transportation in Japan](https://ckan.odpt.org/dataset/r_train_gtfs_rt-odpt_train-tokyometro).
-- **Google Search Tool**: Real-time identification of large-scale events, construction, or sudden noise pollution via search-driven intelligence.
+- **Tokyo Metro GTFS-RT (ODPT)**: Real-time transit information.
+- **Google Search Tool**: Real-time identification of large-scale events and sudden noise pollution.

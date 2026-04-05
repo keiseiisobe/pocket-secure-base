@@ -1,64 +1,28 @@
 # Feature Specification: On-Device AI ("The Guardian")
 
 ## 1. Overview
-"The Guardian" is the on-device intelligence layer of the Pocket Secure Base. It consists of two local AI models—a lightweight LLM for text generation and a high-quality TTS engine—working in tandem to provide immediate, offline-capable sensory support during navigation.
+"The Guardian" is the on-device intelligence layer of the Pocket Secure Base. It consists of a high-speed **Reflex Engine** and a **Vocabulary Asset Store** working in tandem to provide immediate, offline-capable sensory support during navigation.
+
+For the high-level system flow, see the **Hybrid Intelligence Lifecycle** in [ARCHITECTURE.md](../ARCHITECTURE.md).
 
 ---
 
-## 2. The Remote-to-Local Navigation Flow
-The system operates on a "Strategic Cloud, Tactical Local" model. The Cloud AI handles the heavy planning, while the Local AI handles real-time execution and safety.
+## 2. Core Components
 
-```mermaid
-sequenceDiagram
-    participant User
-    participant App as AI Orchestrator (App)
-    participant LocalAI as Local LLM (Tactical)
-    participant LocalTTS as Local TTS (Voice)
-    participant CloudAI as Cloud LLM (Strategic)
-    participant CloudTTS as Cloud TTS (Voice)
-    participant NativeMaps as Google Maps (External)
+### A. The Reflex Engine (Intelligence)
+- **Model Choice**: **Tiny Classifier** (TFLite/CoreML).
+- **Role**: A highly optimized neural network (~5-15MB) that acts as the "Context Switcher." It analyzes sensor data (GPS, Mic, Pulse) to trigger the correct social work intervention.
+- **Latency**: Sub-10ms inference time for near-instantaneous response.
 
-    Note over User, CloudAI: Phase 1: Strategic Planning
-    User->>App: "Go to Cafe via quiet route"
-    App->>CloudAI: Request Plan & Search Environment
-    CloudAI-->>CloudAI: Analyze ODPT & Search
-    CloudAI->>App: Send Plan + Sensory Map
-    App->>User: Show Safety Briefing & Route Overview
-    App->>NativeMaps: Launch via URL Scheme (Waypoints)
+### B. Vocabulary Asset Store (The Voice)
+- **Content**: A local library of high-fidelity audio assets voiced by human social workers.
+- **Role**: Provides the "Safe Haven" verbal guidance and grounding exercises.
+- **Key Feature**: **100% Deterministic.** Zero risk of AI hallucinations during a crisis.
 
-    Note over User, NativeMaps: Phase 2: Tactical Navigation (The Guardian)
-    NativeMaps->>User: Standard Directions
-    
-    rect rgb(240, 248, 255)
-        Note right of App: Background Sentry (Low-Power)
-        App->>App: Monitor GPS + Ambient Noise
-        App->>App: Match Location with Sensory Map
-        
-        alt If Connection is Strong (Normal)
-            App->>CloudAI: Get Situational Advice
-            CloudAI->>CloudTTS: Stream Audio
-            CloudTTS->>User: (Audio) "Stay on the quiet path..."
-        else If Connection is Weak / High Stress (Guardian)
-            App->>LocalAI: Trigger "Guardian" Intervention
-            LocalAI->>LocalTTS: Stream: "Busy road ahead, stay right."
-            LocalTTS->>User: (Audio) "Busy road ahead..."
-        end
-    end
-```
-
----
-
-## 3. Core Models & Assets
-
-### A. Local LLM (Reasoning)
-- **Model Choice**: **gemma-3-1b** (via `onnxruntime` or `LiteRT`).
-- **Role**: Takes raw environmental data (noise, GPS) and route metadata to generate immediate advice when internet is weak or timing is critical.
-- **Latency**: Sub-200ms TTFT (Time-to-First-Token) is the target for immediate intervention.
-
-### B. Local TTS (The Voice)
+### C. Local TTS (Dynamic Backup)
 - **Model Choice**: **Kokoro-82m**.
-- **Role**: Transforms the Local LLM's text into high-quality, natural audio.
-- **Key Feature**: **Offline Support.** It is the primary voice engine when the app is in a "dead zone" (e.g., subway).
+- **Role**: Provides fallback for dynamic information (e.g., specific station names) not covered in the static asset store.
+
 
 ---
 

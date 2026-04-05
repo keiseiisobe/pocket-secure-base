@@ -28,3 +28,27 @@ For individuals with ASD, ADHD, or sensory processing sensitivities, the outside
 - **As a Predictable Partner**: The LLM "pre-scans" the environment to remove the "unknown" variables, and the On-Device AI works offline, ensuring the base never "disappears" due to a bad signal.
 
 By providing this digital secure base, we don't just protect the user; we **empower them to explore** a world they might otherwise avoid.
+
+---
+
+## 5. The Social Worker as a Secure Base (The Intervention Model)
+
+In a high-stress emergency (e.g., a subway accident with no internet), a social worker acting as a "Secure Base" performs a critical, low-tech intervention: **Co-regulation through the voice.**
+
+### A. The "Voice as Intervention"
+In a crisis, the person's "Internal Pilot" (their ability to think and plan) often crashes. The social worker's role is not necessarily to "fix" the physical situation, but to provide an **"External Pilot"** through their voice. 
+- **Biological Safety Signal**: A calm, steady voice sends a frequency that biologically signals the brain to stop the fight-or-flight response.
+- **Executive Function Support**: By "saying something" like *"Follow me to the stairs,"* the social worker takes over the burden of planning, allowing the user to simply follow.
+- **Sensory Filtering**: In a chaotic environment, a single, predictable voice becomes a "Sensory Anchor," helping the user filter out overwhelming noise and flashing lights.
+
+### B. The Limits and Power of Words
+While it may seem that a social worker "only" says something, in a psychological crisis, **words are the medicine.** 
+- **The Limit**: A social worker cannot stop a train or silence a crowd.
+- **The Power**: By providing **predictability and calm**, the social worker prevents a sensory "shutdown" or "meltdown," ensuring the individual can physically move toward safety.
+
+### C. Application to the App
+The **Pocket Secure Base** digitizes this human intervention. When the internet is gone and the situation is at its worst, the **Local AI (The Guardian)** must mimic the social worker:
+1. **Calm Frequency**: Low-pitched, steady-rhythm TTS (Kokoro-82m).
+2. **Low-Demand Scripts**: Direct, concrete instructions that require zero complex thinking.
+3. **Continuous Presence**: Ensuring the "voice" is always there, even in a subway tunnel.
+
