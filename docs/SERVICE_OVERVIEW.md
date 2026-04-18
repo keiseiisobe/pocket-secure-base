@@ -1,9 +1,9 @@
 # Service Overview: DeepBreath
 
 ## 1. Mission Statement
-"DeepBreath" aims to empower individuals with Autism, ADHD, and other developmental disorders by providing them with a digital **"Secure Base"** (as defined by psychologist **John Bowlby**) in their pocket. Our mission is to reduce the anxiety and sensory overload associated with navigating the outside world, enabling greater independence and community interaction.
+DeepBreath aims to empower neurodivergent individuals by serving as their **Mobile Exploration Partner** (the **"Navigator Whale"**). By leveraging the safety provided by their primary human-created Secure Base, our mission is to reduce the anxiety and sensory overload associated with navigating the outside world, enabling greater independence and confident community interaction.
 
-See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for the psychological theory behind the name.
+See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for the psychological theory behind the partnership between human safety and digital exploration.
 
 ## 2. Core Services
 
@@ -34,5 +34,4 @@ See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for
 - Caregivers, guardians, and a supportive local community.
 
 ## 4. Why This Matters
-For many individuals with developmental disorders, the world can be unpredictable and overwhelming. "DeepBreath" acts as a bridge, transforming the outside world from a place of confusion into a space that can be navigated safely and confidently.
-
+For many neurodivergent individuals, the world is an unpredictable "ocean" of sensory triggers. Without a reliable way to manage these, the distance between islands of safety (Home/Work) feels too dangerous to cross. **DeepBreath** acts as the Navigator Whale—a powerful, calm, and predictable vessel that absorbs the turbulence of the environment, transforming the outside world from a place of confusion into a space that can be explored safely and autonomously.
