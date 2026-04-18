@@ -1,11 +1,13 @@
-# Service Overview: DeepBreath
+# Core Services: DeepBreath
 
-## 1. Mission Statement
-DeepBreath aims to empower neurodivergent individuals by serving as their **Mobile Exploration Partner** (the **"Navigator Whale"**). By leveraging the safety provided by their primary human-created Secure Base, our mission is to reduce the anxiety and sensory overload associated with navigating the outside world, enabling greater independence and confident community interaction.
+## 1. Core Commitment: Reliability during Navigation
+As described in [CONCEPT.md](./CONCEPT.md), the primary value proposition of DeepBreath is to provide users with absolute **reliability** while they are outside. Every service listed below is designed to maintain this trust by transforming the unpredictable outside world into a manageable and secure experience. 
 
-See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for the psychological theory behind the partnership between human safety and digital exploration.
+This is a living document that will evolve as we continue to distill our identity as the **Navigator Whale**.
 
-## 2. Core Services
+---
+
+## 2. Services
 
 ### A. LLM-Driven Stressless Navigation
 - **Crowd & Noise Minimization**: AI-powered routing that prioritizes "stressless" paths—avoiding high-decibel areas and extreme pedestrian density.
@@ -22,16 +24,7 @@ See [Conceptual Foundation: Bowlby's "Secure Base"](./THEORY_SECURE_BASE.md) for
 
 ### C. Real-Time Situation Awareness & Verbal Feedback
 - **AI-Powered Verbal Guidance**: Real-time audio feedback for situational awareness (e.g., "The upcoming station is currently very loud; we recommend staying near the center of the platform.").
-- **Offline Safety Upgrade (Local Guardian)**: An optional high-performance mode that downloads on-device AI models (**Gemma-3-1b** and **Kokoro-82m**).
+- **Offline Safety Upgrade (Local Guardian)**: An optional high-performance mode that downloads on-device AI models.
     - **Reliability**: Ensures navigation support and verbal guidance work 100% offline in subway tunnels or "dead zones."
     - **Latency**: Provides near-instantaneous alerts for sudden sensory triggers (e.g., loud sirens or construction) that require immediate intervention.
 - **Smart Re-routing Advice**: Cloud-driven suggestions like "The planned route is currently congested. Would you like to take a quieter detour?"
-
-## 3. Target Audience
-- Individuals with Autism Spectrum Disorder (ASD).
-- Individuals with Attention-Deficit/Hyperactivity Disorder (ADHD).
-- People with sensory processing sensitivities (SPS).
-- Caregivers, guardians, and a supportive local community.
-
-## 4. Why This Matters
-For many neurodivergent individuals, the world is an unpredictable "ocean" of sensory triggers. Without a reliable way to manage these, the distance between islands of safety (Home/Work) feels too dangerous to cross. **DeepBreath** acts as the Navigator Whale—a powerful, calm, and predictable vessel that absorbs the turbulence of the environment, transforming the outside world from a place of confusion into a space that can be explored safely and autonomously.

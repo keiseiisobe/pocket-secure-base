@@ -1,7 +1,7 @@
 # Service Architecture: DeepBreath
 
 ## 1. System Overview
-DeepBreath is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for individuals with developmental disorders.
+DeepBreath is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for neurodivergent individuals.
 
 ## 2. High-Level Component Diagram
 ```mermaid
@@ -118,7 +118,7 @@ The Cloud LLM is equipped with specialized tools to interpret the real world:
 ### C. Background Monitoring & Safety
 - **Google Maps Integration**: Launches the native maps app for navigation while maintaining background monitoring.
 - **Geofencing**: Triggers haptic or voice interventions when approaching high-stress areas identified in the planning phase.
-- **Offline-First Panic Layer**: Ensures the "Digital Social Worker" remains available even in subterranean transit environments.
+- **Offline-First Panic Layer**: Ensures the "Navigator Whale" remains available even in subterranean transit environments.
 
 ---
 
