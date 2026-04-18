@@ -1,22 +1,22 @@
 # Business Model Canvas: DeepBreath
 
-This document outlines the business model for **DeepBreath**, a digital extension of the "Secure Base" psychological framework designed for neurodivergent individuals.
+This document outlines the business model for **DeepBreath**, the **Mobile Exploration Partner** (the **"Navigator Whale"**) designed for **neurodivergent individuals**.
 
 ## 1. Customer Segments
-*   **Primary (B2C):** Individuals with diagnosed developmental disorders (ASD, ADHD) and Highly Sensitive People (HSP/SPS) who face sensory challenges in urban environments.
+*   **Primary (B2C):** neurodivergent individuals (ASD, ADHD, HSP/SPS) who face sensory challenges in urban environments.
 *   **Secondary (Beneficiaries):** Caregivers, parents, and guardians seeking increased autonomy for their loved ones.
 *   **Institutional (B2B):** 
-    *   **Social Welfare Organizations:** NGOs and support centers providing daily assistance.
+    *   **Social Welfare Organizations:** NGOs and support centers providing the primary human-created Secure Base.
     *   **Special Education Schools:** Institutions preparing students for independent life.
     *   **Corporations:** DEI (Diversity, Equity, and Inclusion) programs supporting neurodivergent employees.
 *   **Public Sector (B2G):** Municipalities and transit authorities (e.g., Tokyo Metro) aiming to improve urban accessibility.
 
 ## 2. Value Propositions
 *   **Mental Health Navigation:** Optimization of routes based on "Sensory Health" (avoiding noise and crowds) rather than just speed.
-*   **Digital "Secure Base":** A portable safety net that provides proximity maintenance and predictability in transition zones.
-*   **The Guardian (Offline Safety):** Immediate, zero-latency grounding and guidance via local AI, even in subway "dead zones."
-*   **Stress Reduction:** Mitigation of environmental unpredictability through LLM-driven "pre-scans" of routes (construction, events).
-*   **Autonomy:** Empowering users to explore the city confidently, reducing isolation.
+*   **Mobile Reliability:** A digital companion that provides predictability and safety during excursions from the primary base.
+*   **The Navigator Whale (Offline Safety):** Immediate, zero-latency grounding and guidance via local AI, even in subway "dead zones."
+*   **Sensory Friction Mitigation:** Mitigation of environmental unpredictability through LLM-driven "pre-scans" of routes (construction, events).
+*   **Empowered Autonomy:** Empowering users to explore the city confidently, reducing isolation.
 
 ## 3. Channels
 *   **Mobile App Stores:** Direct distribution (iOS/Android).
