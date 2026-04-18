@@ -19,7 +19,7 @@ The user "rides" on this whale to traverse the unpredictable ocean. The whale pr
 ## 3. Visualization: The Safety Map
 This map illustrates how the app serves as a mobile vessel of safety between fixed bases.
 
-![The Navigator Whale: Mobile Reliability in an Unpredictable World](./assets/concept_map.svg)
+<img src="assets/concept_map.svg" alt="The Navigator Whale: Mobile Reliability in an Unpredictable World" width="600">
 
 ## 4. The App's Role
 - **Islands of Safety (Anchors)**: Fixed locations like Home or School where the primary secure base exists.
