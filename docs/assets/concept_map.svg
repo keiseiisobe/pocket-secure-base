@@ -1,15 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
   <!-- Background: The Unpredictable Ocean (Real World) -->
   <defs>
     <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#e1f5fe;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#b3e5fc;stop-opacity:1" />
+      <stop offset="0%" stop-color="#e1f5fe" stop-opacity="1" />
+      <stop offset="100%" stop-color="#b3e5fc" stop-opacity="1" />
     </linearGradient>
   </defs>
   <rect width="600" height="400" fill="url(#oceanGradient)" rx="10" ry="10" />
   <text x="300" y="30" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#0288d1" font-weight="bold" letter-spacing="1">THE UNPREDICTABLE OCEAN (THE OUTSIDE WORLD)</text>
 
-  <!-- Waves (Symbolizing unpredictability) -->
+  <!-- Waves -->
   <path d="M0 380 Q 75 350 150 380 T 300 380 T 450 380 T 600 380" fill="none" stroke="#81d4fa" stroke-width="2" />
   <path d="M0 360 Q 75 330 150 360 T 300 360 T 450 360 T 600 360" fill="none" stroke="#81d4fa" stroke-width="1" />
 
@@ -42,22 +43,18 @@
 
   <!-- Labels for the Whale -->
   <text x="270" y="180" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#01579b" font-weight="bold">DEEPBREATH</text>
-  <text x="270" y="195" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#01579b">(Predictability, Support, & Reliability)</text>
 
-  <!-- Sensory Hazards (Storm Clouds/Rocks) -->
+  <!-- Hazards (Graphical only) -->
   <g transform="translate(380, 300)">
     <circle cx="0" cy="0" r="15" fill="#cfd8dc" />
     <circle cx="20" cy="0" r="20" fill="#cfd8dc" />
     <circle cx="10" cy="-15" r="15" fill="#cfd8dc" />
-    <text x="10" y="25" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#546e7a">Sensory Storm</text>
   </g>
   
   <g transform="translate(420, 200)">
     <path d="M0 20 L20 0 L40 20 Z" fill="#90a4ae" />
-    <text x="20" y="35" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#546e7a">Crowded Current</text>
   </g>
 
-  <!-- The "Current" of Data -->
+  <!-- Path -->
   <path d="M 120 210 Q 200 210 240 220" stroke="#0288d1" stroke-width="2" fill="none" stroke-dasharray="4,4" />
-  <text x="180" y="200" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#0288d1" font-style="italic">Predictable Data Stream</text>
 </svg>
