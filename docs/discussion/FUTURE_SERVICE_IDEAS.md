@@ -1,6 +1,6 @@
-# Future Service Ideas: Pocket Secure Base
+# Future Service Ideas: DeepBreath
 
-This document serves as a repository for potential features and services to be integrated into the "Pocket Secure Base" ecosystem to further support independence and reduce anxiety.
+This document serves as a repository for potential features and services to be integrated into the "DeepBreath" ecosystem to further support independence and reduce anxiety.
 
 ## 1. Communication & Sensory Management
 - **Emergency AAC (Augmentative and Alternative Communication)**: Simplified visual cards or "Quick-Speak" buttons for users who may become non-verbal or lose the ability to articulate needs during a sensory shutdown (e.g., "I need a quiet space," "Please don't touch me").

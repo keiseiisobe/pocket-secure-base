@@ -1,6 +1,6 @@
 # User Base Estimates: Market Potential
 
-To estimate the number of potential users for **Pocket Secure Base**, we analyze three distinct "User Tiers" ranging from core neurodivergent individuals to the broader population with sensory sensitivities.
+To estimate the number of potential users for **DeepBreath**, we analyze three distinct "User Tiers" ranging from core neurodivergent individuals to the broader population with sensory sensitivities.
 
 ### 1. Tier 1: The Core Target (Diagnosed ASD & ADHD)
 This tier represents individuals who face significant executive function and sensory challenges daily.
@@ -29,7 +29,7 @@ Our app also serves the "Primary Secure Base"—the people who support Tier 1.
 | **Total Addressable** | All sensory-aware travelers | **~25+ Million** | **~9 Million** |
 
 ### Strategic Insight
-The initial market for **Pocket Secure Base** should focus on the **1.6 million residents in Greater Tokyo** who navigate the world's most complex transit system (Tokyo Metro) while managing developmental challenges. Capturing even 1% of this core market (**16,000 users**) would validate the project as a high-impact social welfare tool.
+The initial market for **DeepBreath** should focus on the **1.6 million residents in Greater Tokyo** who navigate the world's most complex transit system (Tokyo Metro) while managing developmental challenges. Capturing even 1% of this core market (**16,000 users**) would validate the project as a high-impact social welfare tool.
 
 **References:**
 [1] MHLW (Japan), "Report on the Survey of Persons with Disabilities" (2022).

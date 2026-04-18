@@ -1,7 +1,7 @@
 # Decision: Cloud AI Models for Strategic Planner, Situational Advisor, & TTS
 
 ## 1. Overview
-Pocket Secure Base utilizes a multi-layered Cloud AI architecture to balance complex strategic planning, real-time reactive support, and high-fidelity emotive feedback. This document records the selected models for these roles.
+DeepBreath utilizes a multi-layered Cloud AI architecture to balance complex strategic planning, real-time reactive support, and high-fidelity emotive feedback. This document records the selected models for these roles.
 
 ## 2. Selected Models
 
@@ -52,4 +52,4 @@ Pocket Secure Base utilizes a multi-layered Cloud AI architecture to balance com
 ---
 
 ## 7. Summary
-By utilizing **Gemini 2.0 Flash/Lite** for intelligence and **ElevenLabs Flash** for voice, the Pocket Secure Base achieves a "Gold Standard" architecture: intelligent enough to navigate the Tokyo Metro, fast enough to respond to immediate stress, and human enough to provide genuine comfort.
+By utilizing **Gemini 2.0 Flash/Lite** for intelligence and **ElevenLabs Flash** for voice, the DeepBreath achieves a "Gold Standard" architecture: intelligent enough to navigate the Tokyo Metro, fast enough to respond to immediate stress, and human enough to provide genuine comfort.

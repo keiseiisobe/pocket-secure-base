@@ -1,7 +1,7 @@
 # Cloud AI Architecture: The Cloud TTS Service
 
 ## 1. Role & Objective
-The Cloud TTS Service provides the **high-quality, emotive "Voice of the Guardian"** for the Pocket Secure Base. 
+The Cloud TTS Service provides the **high-quality, emotive "Voice of the Guardian"** for the DeepBreath. 
 
 ---
 

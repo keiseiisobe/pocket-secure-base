@@ -1,7 +1,7 @@
 # Feature Specification: On-Device AI ("The Guardian")
 
 ## 1. Overview
-"The Guardian" is the on-device intelligence layer of the Pocket Secure Base. It consists of a high-speed **Reflex Engine** and a **Vocabulary Asset Store** working in tandem to provide immediate, offline-capable sensory support during navigation.
+"The Guardian" is the on-device intelligence layer of the DeepBreath. It consists of a high-speed **Reflex Engine** and a **Vocabulary Asset Store** working in tandem to provide immediate, offline-capable sensory support during navigation.
 
 For the high-level system flow, see the **Hybrid Intelligence Lifecycle** in [ARCHITECTURE.md](../ARCHITECTURE.md).
 

@@ -1,4 +1,4 @@
-package com.example.wrist_buddy
+package com.example.deep_breath
 
 import io.flutter.embedding.android.FlutterActivity
 

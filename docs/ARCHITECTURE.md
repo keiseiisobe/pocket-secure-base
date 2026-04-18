@@ -1,7 +1,7 @@
-# Service Architecture: Pocket Secure Base
+# Service Architecture: DeepBreath
 
 ## 1. System Overview
-Pocket Secure Base is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for individuals with developmental disorders.
+DeepBreath is a mobile-first platform that leverages Large Language Models (LLMs) and real-time environmental data to provide sensory-aware navigation and support for individuals with developmental disorders.
 
 ## 2. High-Level Component Diagram
 ```mermaid

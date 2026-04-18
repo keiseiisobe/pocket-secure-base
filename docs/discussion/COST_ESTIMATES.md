@@ -1,6 +1,6 @@
-# Cost Estimates: Pocket Secure Base
+# Cost Estimates: DeepBreath
 
-Based on the system architecture and service overview for **Pocket Secure Base**, the app relies on external APIs (Google Search, Transit Data) and Cloud LLMs for routing, real-time environment analysis, and tool use.
+Based on the system architecture and service overview for **DeepBreath**, the app relies on external APIs (Google Search, Transit Data) and Cloud LLMs for routing, real-time environment analysis, and tool use.
 
 The following is an estimated daily cost breakdown assuming **1,000 Daily Active Users (DAU)**.
 

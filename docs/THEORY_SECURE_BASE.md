@@ -19,10 +19,10 @@ For a "Secure Base" to be effective, it must serve three functions:
 
 ---
 
-## 4. Why "Pocket Secure Base"?
+## 4. Why "DeepBreath"?
 For individuals with ASD, ADHD, or sensory processing sensitivities, the outside world is often a source of **unpredictable sensory "attacks"** (sudden construction noise, overwhelming crowds, transit delays). Without a reliable way to manage these, the world feels too dangerous to explore, leading to isolation.
 
-**Pocket Secure Base** digitizes this psychological concept:
+**DeepBreath** digitizes this psychological concept:
 - **As a Safe Haven**: The "Panic Button," "Grounding Tools," and "Safe Haven" routing provide immediate emotional and sensory regulation.
 - **As Proximity Maintenance**: By living **in the pocket** (on the smartphone/wearable), the base is always "there" during the most vulnerable moments—the transitions between locations.
 - **As a Predictable Partner**: The LLM "pre-scans" the environment to remove the "unknown" variables, and the On-Device AI works offline, ensuring the base never "disappears" due to a bad signal.
@@ -47,7 +47,7 @@ While it may seem that a social worker "only" says something, in a psychological
 - **The Power**: By providing **predictability and calm**, the social worker prevents a sensory "shutdown" or "meltdown," ensuring the individual can physically move toward safety.
 
 ### C. Application to the App
-The **Pocket Secure Base** digitizes this human intervention. When the internet is gone and the situation is at its worst, the **Local AI (The Guardian)** must mimic the social worker:
+The **DeepBreath** digitizes this human intervention. When the internet is gone and the situation is at its worst, the **Local AI (The Guardian)** must mimic the social worker:
 1. **Calm Frequency**: Low-pitched, steady-rhythm TTS (Kokoro-82m).
 2. **Low-Demand Scripts**: Direct, concrete instructions that require zero complex thinking.
 3. **Continuous Presence**: Ensuring the "voice" is always there, even in a subway tunnel.

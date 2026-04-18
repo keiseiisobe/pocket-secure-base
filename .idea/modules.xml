@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/wrist_buddy.iml" filepath="$PROJECT_DIR$/wrist_buddy.iml" />
-      <module fileurl="file://$PROJECT_DIR$/android/wrist_buddy_android.iml" filepath="$PROJECT_DIR$/android/wrist_buddy_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deep_breath.iml" filepath="$PROJECT_DIR$/deep_breath.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/deep_breath_android.iml" filepath="$PROJECT_DIR$/android/deep_breath_android.iml" />
     </modules>
   </component>
 </project>

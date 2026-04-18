@@ -1,6 +1,6 @@
 {
-    "name": "wrist_buddy",
-    "short_name": "wrist_buddy",
+    "name": "DeepBreath",
+    "short_name": "DeepBreath",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

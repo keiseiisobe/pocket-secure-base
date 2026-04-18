@@ -1,7 +1,7 @@
 # Cloud AI Architecture: The Strategic Agent (Planning Phase)
 
 ## 1. Role & Objective
-The Cloud AI acts as the **Strategic Planner** for the Pocket Secure Base. Its primary goal is to transform a user request and their specific sensory preferences (Noise, Crowd, Light) into a detailed, sensory-aware navigation plan. 
+The Cloud AI acts as the **Strategic Planner** for the DeepBreath. Its primary goal is to transform a user request and their specific sensory preferences (Noise, Crowd, Light) into a detailed, sensory-aware navigation plan. 
 
 While the Local AI handles "Tactical" immediate safety via the Reflex Engine, the Cloud AI handles the "Strategic" deep-reasoning tasks and pre-writes the guidance scripts used by the app during offline or high-stress moments.
 

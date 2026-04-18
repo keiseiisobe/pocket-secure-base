@@ -1,7 +1,7 @@
 # Monetization Strategy: Sustaining the Secure Base
 
 ## 1. Overview
-The "Pocket Secure Base" is a mission-driven application. Our monetization strategy is designed to ensure the service remains accessible to those who need it most while building a sustainable business model through institutional and public-sector partnerships.
+The "DeepBreath" is a mission-driven application. Our monetization strategy is designed to ensure the service remains accessible to those who need it most while building a sustainable business model through institutional and public-sector partnerships.
 
 ---
 

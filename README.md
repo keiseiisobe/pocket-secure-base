@@ -1,4 +1,4 @@
-# Pocket Secure Base
+# DeepBreath
 
 A digital "secure base" in your pocket for individuals with Autism, ADHD, and sensory processing sensitivities.
 

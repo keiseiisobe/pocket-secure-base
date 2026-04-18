@@ -1,4 +1,4 @@
-name: pocket_secure_base
+name: deep_breath
 description: "A new Flutter project."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -32,9 +32,9 @@ dependencies:
     sdk: flutter
 
   # Navigation and Location
-  google_maps_flutter: ^2.10.0
-  geolocator: ^13.0.1
-  google_maps_routes: ^1.0.3
+  # google_maps_flutter: ^2.10.0
+  # geolocator: ^13.0.1
+  # google_maps_routes: ^1.0.3
 
   # State Management
   flutter_riverpod: ^2.6.1
