@@ -6,7 +6,7 @@ The user is meeting a friend at a new cafe. While they are curious about the des
 ## 2. System Intervention
 
 ### A. Sensory-Aware Route Planning
-- **User Action**: Enters the cafe name into the "Secure Base" planner.
+- **User Action**: Enters the cafe name into the "DeepBreath" planner.
 - **Cloud LLM**: Uses the **Google Search Tool** and **Maps API** to analyze the route. It identifies that the shortest path goes through a loud construction zone and a crowded shopping arcade.
 - **Action**: The LLM picks a **Tactical Route** that uses residential backstreets. It adds 4 minutes to the walk but reduces noise exposure by an estimated 60%.
 

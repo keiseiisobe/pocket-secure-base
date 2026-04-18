@@ -29,5 +29,5 @@ This document serves as a repository for potential features and services to be i
 
 ## 6. Wearable Integration
 - **Discreet Haptic Navigation**: Using Apple Watch or Wear OS to provide directional "nudges" (vibration patterns) so the user doesn't have to look at their phone.
-- **Physical SOS Trigger**: A dedicated watch complication or button sequence to trigger "Secure Base" mode instantly and discreetly.
+- **Physical SOS Trigger**: A dedicated watch complication or button sequence to trigger "DeepBreath" mode instantly and discreetly.
 - **Bio-Feedback Sync**: Using watch heart-rate data to automatically trigger grounding exercises if the user's stress levels (heart rate variability) spike.

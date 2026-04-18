@@ -10,9 +10,9 @@ The core components are technically possible today, but the "glue" that connects
     - **Background Execution**: Mobile OS (iOS/Android) limits what apps can do in the background to save battery. Keeping an LLM-driven "verbal guide" active while Google Maps is in the foreground requires careful handling of Background App Refresh and Audio session permissions.
 
 ## 2. Value for Target Audience: [High]
-For individuals with ASD, ADHD, or SPS, this tool addresses "Environmental Unpredictability," which is a primary source of anxiety.
+For neurodivergent individuals (ASD, ADHD, or SPS), this tool addresses "Environmental Unpredictability," which is a primary source of anxiety.
 
-- **Autonomy**: By providing a "Secure Base," the app allows users to attempt journeys they might otherwise avoid, fostering independence.
+- **Autonomy**: By providing a reliable mobile partner, the app allows users to attempt journeys they might otherwise avoid, fostering independence.
 - **Sensory Management**: Traditional navigation (Google/Apple Maps) optimizes for *speed*. This app optimizes for *mental health*, which is a massive underserved market.
 - **Grounding Tools**: Having haptic/audio grounding pre-integrated into a navigation tool is clever because the "crisis" (panic) often happens *during* the transition between locations.
 

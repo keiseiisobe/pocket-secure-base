@@ -21,5 +21,5 @@ Based on the **Secure Base** theory, DeepBreath bridges the gap between islands 
 *   [**Concept & Metaphor**](docs/CONCEPT.md): Understanding the Navigator Whale.
 *   [**Core Services**](docs/SERVICE_OVERVIEW.md): Detailed breakdown of features.
 *   [**Architecture**](docs/ARCHITECTURE.md): The Hybrid Cloud/Edge AI system.
-*   [**Business Model Canvas**](docs/BUSINESS_MODEL_CANVAS.md): Strategy and sustainability.
+*   [**Business Plan**](docs/BUSINESS_PLAN.md): Strategy and sustainability.
 *   [**Project Analysis**](docs/discussion/PROJECT_ANALYSIS.md): Feasibility and risks.
