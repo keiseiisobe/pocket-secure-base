@@ -23,3 +23,4 @@ Based on the **Secure Base** theory, DeepBreath bridges the gap between islands 
 *   [**Architecture**](docs/ARCHITECTURE.md): The Hybrid Cloud/Edge AI system.
 *   [**Business Plan**](docs/BUSINESS_PLAN.md): Strategy and sustainability.
 *   [**Project Analysis**](docs/discussion/PROJECT_ANALYSIS.md): Feasibility and risks.
+*   [**Neurobiology of Security**](docs/discussion/NEUROBIOLOGY_OF_SECURITY.md): The scientific foundation.
