@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'ui/sample/dashboard_wireframe.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'ui/plan_route_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -14,9 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'DeepBreath',
       theme: ThemeData(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF2F6F7A)),
       ),
-      home: const DashboardWireframe(),
+      home: const PlanRouteScreen(),
     );
   }
 }

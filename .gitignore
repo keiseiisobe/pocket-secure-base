@@ -122,3 +122,8 @@ app.*.symbols
 
 # FVM Version Cache
 .fvm/
+
+# Python server
+server/.venv/
+**/__pycache__/
+*.py[cod]
